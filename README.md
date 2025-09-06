@@ -1,7 +1,8 @@
 ## PressureWashing
 
-## JavaScript to React State Automation
+## JavaScript to React State Automation - Flow Programming
+ a. Use main.js or other JavaScript files as a reference
 
-1. fttco-animate: Apply Parallex to component. Remove ftco-animate. - /src/components/common/GlobalHeroWrap1.tsx
+
 
 
