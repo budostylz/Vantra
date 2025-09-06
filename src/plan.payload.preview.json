@@ -1,0 +1,25 @@
+{
+  "routes": [
+    {
+      "route": "/about"
+    },
+    {
+      "route": "/blog-single"
+    },
+    {
+      "route": "/blog"
+    },
+    {
+      "route": "/contact"
+    },
+    {
+      "route": "/gallery"
+    },
+    {
+      "route": "/"
+    },
+    {
+      "route": "/services"
+    }
+  ]
+}

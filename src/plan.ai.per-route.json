@@ -1,0 +1,267 @@
+{
+  "pages": [
+    {
+      "route": "/about",
+      "fileStem": "about",
+      "pagePath": "",
+      "blocks": [
+        {
+          "chunkId": "page:about#Sec0",
+          "importPath": "@/components/about/Sec0/Sec0",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        },
+        {
+          "chunkId": "page:about#Sec1",
+          "importPath": "@/components/about/Sec1/Sec1",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        },
+        {
+          "chunkId": "page:about#Sec2",
+          "importPath": "@/components/about/Sec2/Sec2",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        },
+        {
+          "chunkId": "page:about#Sec3",
+          "importPath": "@/components/about/Sec3/Sec3",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        }
+      ],
+      "missing": []
+    },
+    {
+      "route": "/blog-single",
+      "fileStem": "blog-single",
+      "pagePath": "",
+      "blocks": [
+        {
+          "chunkId": "page:blog-single#Sec0",
+          "importPath": "@/components/blog-single/Sec0/Sec0",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        },
+        {
+          "chunkId": "page:blog-single#Sec1Part1",
+          "importPath": "@/components/blog-single/Sec1Part1/Sec1Part1",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        }
+      ],
+      "missing": []
+    },
+    {
+      "route": "/blog",
+      "fileStem": "blog",
+      "pagePath": "",
+      "blocks": [
+        {
+          "chunkId": "page:blog#Sec0",
+          "importPath": "@/components/blog/Sec0/Sec0",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        },
+        {
+          "chunkId": "page:blog#Sec1",
+          "importPath": "@/components/blog/Sec1/Sec1",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        }
+      ],
+      "missing": []
+    },
+    {
+      "route": "/contact",
+      "fileStem": "contact",
+      "pagePath": "",
+      "blocks": [
+        {
+          "chunkId": "page:contact#Sec0",
+          "importPath": "@/components/contact/Sec0/Sec0",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        },
+        {
+          "chunkId": "page:contact#Sec1",
+          "importPath": "@/components/contact/Sec1/Sec1",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        }
+      ],
+      "missing": []
+    },
+    {
+      "route": "/gallery",
+      "fileStem": "gallery",
+      "pagePath": "",
+      "blocks": [
+        {
+          "chunkId": "page:gallery#Sec0",
+          "importPath": "@/components/gallery/Sec0/Sec0",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        },
+        {
+          "chunkId": "page:gallery#Sec1",
+          "importPath": "@/components/gallery/Sec1/Sec1",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        }
+      ],
+      "missing": []
+    },
+    {
+      "route": "/",
+      "fileStem": "home",
+      "pagePath": "",
+      "blocks": [
+        {
+          "chunkId": "page:home#Sec0",
+          "importPath": "@/components/home/Sec0/Sec0",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        },
+        {
+          "chunkId": "page:home#Sec1",
+          "importPath": "@/components/home/Sec1/Sec1",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        },
+        {
+          "chunkId": "page:home#Sec2",
+          "importPath": "@/components/home/Sec2/Sec2",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        },
+        {
+          "chunkId": "page:home#Sec3",
+          "importPath": "@/components/home/Sec3/Sec3",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        },
+        {
+          "chunkId": "page:home#Sec4",
+          "importPath": "@/components/home/Sec4/Sec4",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        },
+        {
+          "chunkId": "page:home#Sec5",
+          "importPath": "@/components/home/Sec5/Sec5",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        },
+        {
+          "chunkId": "page:home#Sec6",
+          "importPath": "@/components/home/Sec6/Sec6",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        },
+        {
+          "chunkId": "page:home#Sec7",
+          "importPath": "@/components/home/Sec7/Sec7",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        }
+      ],
+      "missing": []
+    },
+    {
+      "route": "/services",
+      "fileStem": "services",
+      "pagePath": "",
+      "blocks": [
+        {
+          "chunkId": "page:services#Sec0",
+          "importPath": "@/components/services/Sec0/Sec0",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        },
+        {
+          "chunkId": "page:services#Sec1",
+          "importPath": "@/components/services/Sec1/Sec1",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        },
+        {
+          "chunkId": "page:services#Sec2",
+          "importPath": "@/components/services/Sec2/Sec2",
+          "wrapper": {
+            "tag": "div",
+            "id": null,
+            "class": null
+          }
+        }
+      ],
+      "missing": []
+    }
+  ]
+}

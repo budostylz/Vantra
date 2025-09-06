@@ -1,0 +1,92 @@
+{
+  "files": [
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/services/Sec2/Sec2.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/services/Sec1/Sec1.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/services/Sec0/Sec0.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/home/Sec7/Sec7.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/home/Sec6/Sec6.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/home/Sec5/Sec5.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/home/Sec4/Sec4.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/home/Sec3/Sec3.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/home/Sec2/Sec2.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/home/Sec1/Sec1.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/home/Sec0/Sec0.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/gallery/Sec1/Sec1.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/gallery/Sec0/Sec0.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/contact/Sec1/Sec1.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/contact/Sec0/Sec0.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/common/Navbar/Navbar.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/common/MapWrap/MapWrap.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/common/GlobalWrap0/GlobalWrap0.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/common/GlobalHeroWrap1/GlobalHeroWrap1.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/common/GlobalFtcoLoader2/GlobalFtcoLoader2.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/common/GlobalFtcoLoader1/GlobalFtcoLoader1.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/common/Footer/Footer.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/blog-single/Sec1Part1/Sec1Part1.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/blog-single/Sec0/Sec0.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/blog/Sec1/Sec1.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/blog/Sec0/Sec0.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/about/Sec3/Sec3.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/about/Sec2/Sec2.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/about/Sec1/Sec1.tsx",
+    "/var/folders/lv/7qfx7spj2v5f_cgcq10h9nt40000gn/T/agentbuild-3e74w0/site/src/components/about/Sec0/Sec0.tsx"
+  ],
+  "byId": {},
+  "byName": {
+    "Sec2": "@/components/about/Sec2/Sec2",
+    "Sec1": "@/components/about/Sec1/Sec1",
+    "Sec0": "@/components/about/Sec0/Sec0",
+    "Sec7": "@/components/home/Sec7/Sec7",
+    "Sec6": "@/components/home/Sec6/Sec6",
+    "Sec5": "@/components/home/Sec5/Sec5",
+    "Sec4": "@/components/home/Sec4/Sec4",
+    "Sec3": "@/components/about/Sec3/Sec3",
+    "Navbar": "@/components/common/Navbar/Navbar",
+    "MapWrap": "@/components/common/MapWrap/MapWrap",
+    "GlobalWrap0": "@/components/common/GlobalWrap0/GlobalWrap0",
+    "GlobalHeroWrap1": "@/components/common/GlobalHeroWrap1/GlobalHeroWrap1",
+    "GlobalFtcoLoader2": "@/components/common/GlobalFtcoLoader2/GlobalFtcoLoader2",
+    "GlobalFtcoLoader1": "@/components/common/GlobalFtcoLoader1/GlobalFtcoLoader1",
+    "Footer": "@/components/common/Footer/Footer",
+    "Sec1Part1": "@/components/blog-single/Sec1Part1/Sec1Part1"
+  },
+  "byPageName": {
+    "services": {
+      "Sec2": "@/components/services/Sec2/Sec2",
+      "Sec1": "@/components/services/Sec1/Sec1",
+      "Sec0": "@/components/services/Sec0/Sec0"
+    },
+    "home": {
+      "Sec7": "@/components/home/Sec7/Sec7",
+      "Sec6": "@/components/home/Sec6/Sec6",
+      "Sec5": "@/components/home/Sec5/Sec5",
+      "Sec4": "@/components/home/Sec4/Sec4",
+      "Sec3": "@/components/home/Sec3/Sec3",
+      "Sec2": "@/components/home/Sec2/Sec2",
+      "Sec1": "@/components/home/Sec1/Sec1",
+      "Sec0": "@/components/home/Sec0/Sec0"
+    },
+    "gallery": {
+      "Sec1": "@/components/gallery/Sec1/Sec1",
+      "Sec0": "@/components/gallery/Sec0/Sec0"
+    },
+    "contact": {
+      "Sec1": "@/components/contact/Sec1/Sec1",
+      "Sec0": "@/components/contact/Sec0/Sec0"
+    },
+    "blog-single": {
+      "Sec1Part1": "@/components/blog-single/Sec1Part1/Sec1Part1",
+      "Sec0": "@/components/blog-single/Sec0/Sec0"
+    },
+    "blog": {
+      "Sec1": "@/components/blog/Sec1/Sec1",
+      "Sec0": "@/components/blog/Sec0/Sec0"
+    },
+    "about": {
+      "Sec3": "@/components/about/Sec3/Sec3",
+      "Sec2": "@/components/about/Sec2/Sec2",
+      "Sec1": "@/components/about/Sec1/Sec1",
+      "Sec0": "@/components/about/Sec0/Sec0"
+    }
+  }
+}
