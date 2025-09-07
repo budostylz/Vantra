@@ -2,7 +2,7 @@
    Source: overlayMap.json
    Do not edit manually — commit overlayMap.ts instead. */
 export const overlayMap = {
-  id:12345,
+  id: 12345,
   "global": {
     "globalFtcoLoader1": {
       "id": "aa95f51993",
@@ -52,7 +52,7 @@ export const overlayMap = {
             "value": "Instagram",
             "tag": "i"
           }
-         
+
         ],
         "links": [
           {
@@ -95,7 +95,40 @@ export const overlayMap = {
     "mapWrap": {
       "id": "62b48f9446",
       "component": "MapWrap",
-      "props": {},
+      "props": {
+        "text": [
+          { "tag": "h3", "value": "Our Office" },
+          { "tag": "p", "value": "66 West Flagler St, Suite 900" },
+          { "tag": "p", "value": "Miami, Florida 33186" }
+        ],
+        "links": [
+          {
+            "tag": "iframe.src",
+            "href": "https://www.google.com/maps?q=66+West+Flagler+St,+Suite+900,+Miami,+Florida,+33186&output=embed",
+            "text": "Embedded Map"
+          },
+          {
+            "tag": "a",
+            "href": "https://www.google.com/maps/search/?api=1&query=66+West+Flagler+St,+Suite+900,+Miami,+Florida,+33186",
+            "text": "Open in Google Maps"
+          },
+          {
+            "tag": "a",
+            "href": "https://www.google.com/maps/dir/?api=1&destination=66+West+Flagler+St,+Suite+900,+Miami,+Florida,+33186",
+            "text": "Get Directions"
+          }
+        ],
+        "images": [],
+        "variables": [
+          { "key": "address", "value": "66 West Flagler St, Suite 900, Miami, Florida, 33186" },
+          { "key": "address_q", "value": "66+West+Flagler+St,+Suite+900,+Miami,+Florida,+33186" },
+          { "key": "mapHeight", "value": "400px" },
+          { "key": "mapZoom", "value": "15" }
+        ],
+        "assets": [
+          { "type": "file", "path": "react" }
+        ]
+      },
       "editable": true
     },
     "globalHeroWrap1": {
