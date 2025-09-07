@@ -1,18 +1,83 @@
-import React from 'react';
+import React, { useEffect, useRef } from "react";
 import { useOverlay } from "@/store/hooks";
 import OverlayEditor from "@/components/dev/OverlayEditor";
 
+/** Small inline expand icon (no FA dependency) */
+const ExpandIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    width="1em"
+    height="1em"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    focusable="false"
+    {...props}
+  >
+    {/* top-right expand arrow */}
+    <polyline points="15 3 21 3 21 9" />
+    <line x1="21" y1="3" x2="14" y2="10" />
+    {/* bottom-left expand arrow */}
+    <polyline points="9 21 3 21 3 15" />
+    <line x1="3" y1="21" x2="10" y2="14" />
+  </svg>
+);
+
 export default function Sec5() {
-  // Overlay wiring (auto-injected)
   const ROUTE = "/home";
   const OVERLAY_KEY = "sec5";
   const { node: sec5Overlay, text, links, images, variables } = useOverlay(ROUTE, OVERLAY_KEY);
 
+  // ---- ftco-animate mimic ----
+  const sectionRef = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    const root = sectionRef.current;
+    if (!root) return;
+
+    const applyEffect = (el: HTMLElement) => {
+      const effect = (el.getAttribute("data-animate-effect") || "").trim();
+      if (effect === "fadeIn") el.classList.add("fadeIn", "ftco-animated");
+      else if (effect === "fadeInLeft") el.classList.add("fadeInLeft", "ftco-animated");
+      else if (effect === "fadeInRight") el.classList.add("fadeInRight", "ftco-animated");
+      else el.classList.add("fadeInUp", "ftco-animated");
+      el.classList.remove("item-animate");
+    };
+
+    const processBatch = () => {
+      Array.from(root.querySelectorAll<HTMLElement>(".ftco-animate.item-animate")).forEach((el, k) =>
+        setTimeout(() => applyEffect(el), k * 50)
+      );
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        let queued = false;
+        entries.forEach((entry) => {
+          const el = entry.target as HTMLElement;
+          if (entry.isIntersecting && !el.classList.contains("ftco-animated")) {
+            el.classList.add("item-animate");
+            queued = true;
+          }
+        });
+        if (queued) setTimeout(processBatch, 100);
+      },
+      { root: null, rootMargin: "0px 0px -5% 0px", threshold: 0 }
+    );
+
+    Array.from(root.querySelectorAll<HTMLElement>(".ftco-animate")).forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+  // -----------------------------------------------
+
   return (
     <>
-      <section className="ftco-section">
+      <section ref={sectionRef} className="ftco-section">
         <div className="container-fluid px-md-4">
           <div className="row">
+            {/* 1 */}
             <div className="col-md-3 ftco-animate">
               <div
                 className="work mb-4 img d-flex align-items-end"
@@ -22,18 +87,18 @@ export default function Sec5() {
                   href={links[0]?.href ?? "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-1.jpg"}
                   className="icon image-popup d-flex justify-content-center align-items-center"
                 >
-                  <span className="fa fa-expand"></span>
+                  <ExpandIcon />
                 </a>
                 <div className="desc w-100 px-4">
                   <div className="text w-100 mb-3">
                     <span>{text[0]?.value ?? "Roof cleaning"}</span>
-                    <h2>
-                      <a href={links[1]?.href ?? "work-single.html"}>{links[1]?.text ?? "Roof Cleaning"}</a>
-                    </h2>
+                    <h2><a href={links[1]?.href ?? "work-single.html"}>{links[1]?.text ?? "Roof Cleaning"}</a></h2>
                   </div>
                 </div>
               </div>
             </div>
+
+            {/* 2 */}
             <div className="col-md-3 ftco-animate">
               <div
                 className="work mb-4 img d-flex align-items-end"
@@ -43,18 +108,18 @@ export default function Sec5() {
                   href={links[2]?.href ?? "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-2.jpg"}
                   className="icon image-popup d-flex justify-content-center align-items-center"
                 >
-                  <span className="fa fa-expand"></span>
+                  <ExpandIcon />
                 </a>
                 <div className="desc w-100 px-4">
                   <div className="text w-100 mb-3">
                     <span>{text[2]?.value ?? "Driveway"}</span>
-                    <h2>
-                      <a href={links[3]?.href ?? "work-single.html"}>{links[3]?.text ?? "Gaston Driveway"}</a>
-                    </h2>
+                    <h2><a href={links[3]?.href ?? "work-single.html"}>{links[3]?.text ?? "Gaston Driveway"}</a></h2>
                   </div>
                 </div>
               </div>
             </div>
+
+            {/* 3 */}
             <div className="col-md-3 ftco-animate">
               <div
                 className="work mb-4 img d-flex align-items-end"
@@ -64,18 +129,18 @@ export default function Sec5() {
                   href={links[4]?.href ?? "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-3.jpg"}
                   className="icon image-popup d-flex justify-content-center align-items-center"
                 >
-                  <span className="fa fa-expand"></span>
+                  <ExpandIcon />
                 </a>
                 <div className="desc w-100 px-4">
                   <div className="text w-100 mb-3">
                     <span>{text[4]?.value ?? "Gutter Cleaning"}</span>
-                    <h2>
-                      <a href={links[5]?.href ?? "work-single.html"}>{links[5]?.text ?? "Gutter"}</a>
-                    </h2>
+                    <h2><a href={links[5]?.href ?? "work-single.html"}>{links[5]?.text ?? "Gutter"}</a></h2>
                   </div>
                 </div>
               </div>
             </div>
+
+            {/* 4 */}
             <div className="col-md-3 ftco-animate">
               <div
                 className="work mb-4 img d-flex align-items-end"
@@ -85,18 +150,18 @@ export default function Sec5() {
                   href={links[6]?.href ?? "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-4.jpg"}
                   className="icon image-popup d-flex justify-content-center align-items-center"
                 >
-                  <span className="fa fa-expand"></span>
+                  <ExpandIcon />
                 </a>
                 <div className="desc w-100 px-4">
                   <div className="text w-100 mb-3">
                     <span>{text[6]?.value ?? "Patio Cleaning"}</span>
-                    <h2>
-                      <a href={links[7]?.href ?? "work-single.html"}>{links[7]?.text ?? "Patio Cleaning"}</a>
-                    </h2>
+                    <h2><a href={links[7]?.href ?? "work-single.html"}>{links[7]?.text ?? "Patio Cleaning"}</a></h2>
                   </div>
                 </div>
               </div>
             </div>
+
+            {/* 5 */}
             <div className="col-md-3 ftco-animate">
               <div
                 className="work mb-4 img d-flex align-items-end"
@@ -106,18 +171,18 @@ export default function Sec5() {
                   href={links[8]?.href ?? "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-5.jpg"}
                   className="icon image-popup d-flex justify-content-center align-items-center"
                 >
-                  <span className="fa fa-expand"></span>
+                  <ExpandIcon />
                 </a>
                 <div className="desc w-100 px-4">
                   <div className="text w-100 mb-3">
                     <span>{text[8]?.value ?? "Building Cleaning"}</span>
-                    <h2>
-                      <a href={links[9]?.href ?? "work-single.html"}>{links[9]?.text ?? "Building Cleaning"}</a>
-                    </h2>
+                    <h2><a href={links[9]?.href ?? "work-single.html"}>{links[9]?.text ?? "Building Cleaning"}</a></h2>
                   </div>
                 </div>
               </div>
             </div>
+
+            {/* 6 */}
             <div className="col-md-3 ftco-animate">
               <div
                 className="work mb-4 img d-flex align-items-end"
@@ -127,18 +192,18 @@ export default function Sec5() {
                   href={links[10]?.href ?? "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-6.jpg"}
                   className="icon image-popup d-flex justify-content-center align-items-center"
                 >
-                  <span className="fa fa-expand"></span>
+                  <ExpandIcon />
                 </a>
                 <div className="desc w-100 px-4">
                   <div className="text w-100 mb-3">
                     <span>{text[10]?.value ?? "Building Cleaning"}</span>
-                    <h2>
-                      <a href={links[11]?.href ?? "work-single.html"}>{links[11]?.text ?? "Hall Way"}</a>
-                    </h2>
+                    <h2><a href={links[11]?.href ?? "work-single.html"}>{links[11]?.text ?? "Hall Way"}</a></h2>
                   </div>
                 </div>
               </div>
             </div>
+
+            {/* 7 */}
             <div className="col-md-3 ftco-animate">
               <div
                 className="work mb-4 img d-flex align-items-end"
@@ -148,18 +213,18 @@ export default function Sec5() {
                   href={links[12]?.href ?? "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-7.jpg"}
                   className="icon image-popup d-flex justify-content-center align-items-center"
                 >
-                  <span className="fa fa-expand"></span>
+                  <ExpandIcon />
                 </a>
                 <div className="desc w-100 px-4">
                   <div className="text w-100 mb-3">
                     <span>{text[12]?.value ?? "Patio Cleaning"}</span>
-                    <h2>
-                      <a href={links[13]?.href ?? "work-single.html"}>{links[13]?.text ?? "Garden Cleaning"}</a>
-                    </h2>
+                    <h2><a href={links[13]?.href ?? "work-single.html"}>{links[13]?.text ?? "Garden Cleaning"}</a></h2>
                   </div>
                 </div>
               </div>
             </div>
+
+            {/* 8 */}
             <div className="col-md-3 ftco-animate">
               <div
                 className="work mb-4 img d-flex align-items-end"
@@ -169,21 +234,21 @@ export default function Sec5() {
                   href={links[14]?.href ?? "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-8.jpg"}
                   className="icon image-popup d-flex justify-content-center align-items-center"
                 >
-                  <span className="fa fa-expand"></span>
+                  <ExpandIcon />
                 </a>
                 <div className="desc w-100 px-4">
                   <div className="text w-100 mb-3">
                     <span>{text[14]?.value ?? "Office"}</span>
-                    <h2>
-                      <a href={links[15]?.href ?? "work-single.html"}>{links[15]?.text ?? "Office Cleaning"}</a>
-                    </h2>
+                    <h2><a href={links[15]?.href ?? "work-single.html"}>{links[15]?.text ?? "Office Cleaning"}</a></h2>
                   </div>
                 </div>
               </div>
             </div>
+            {/* /end grid */}
           </div>
         </div>
       </section>
+
       <div className="container mt-6">
         <div
           style={{

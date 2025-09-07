@@ -9695,6 +9695,45 @@ textarea.form-control {
   animation: none !important;
 }
 
+/* Show the circle + icon when the whole image (.work) is hovered */
+.work .icon {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.9);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+/* Hover the whole card, not just the circle */
+.work:hover .icon,
+.work:focus-within .icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Make sure the SVG appears with the circle */
+.work .icon > svg {
+  opacity: 0;
+  color: #fff;            /* icon color */
+  font-size: 22px;        /* size like the original */
+  pointer-events: none;   /* keep clicks on the link */
+  transition: opacity .15s ease;
+}
+.work:hover .icon > svg,
+.work:focus-within .icon > svg {
+  opacity: 1;
+}
+
+/* Ensure expand circle is perfectly centered in each tile */
+.work.img { position: relative; }
+.work .icon {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+
+
 
 
 @-webkit-keyframes loader-rotate {
