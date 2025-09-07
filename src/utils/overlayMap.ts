@@ -3036,7 +3036,7 @@ export const overlayMap = {
         "links": [
           {
             "tag": "a",
-            "href": "index.html",
+            "href": "/",
             "text": "Home"
           }
         ],
