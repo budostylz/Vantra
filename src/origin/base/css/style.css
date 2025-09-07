@@ -9732,7 +9732,46 @@ textarea.form-control {
   z-index: 2;
 }
 
+/* Footer social icons — center the SVGs in the circles */
+.footer .ftco-footer-social {
+  display: flex;            /* keep them in a row */
+  gap: 22px;                /* spacing between circles (tweak as you like) */
+}
 
+.footer .ftco-footer-social li {
+  list-style: none;
+}
+
+.footer .ftco-footer-social li a {
+  width: 40px;              /* circle size */
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  display: flex;            /* <-- key */
+  align-items: center;      /* <-- key */
+  justify-content: center;  /* <-- key */
+  line-height: 0;           /* <-- critical for SVG baseline quirks */
+}
+
+.footer .ftco-footer-social li a svg {
+  width: 26px;              /* icon size */
+  height: 26px;
+  display: block;           /* avoid inline baseline */
+  vertical-align: middle;   /* extra safety */
+  color: #2f89fc;           /* brand blue; tweak if needed */
+}
+
+
+/* top bar icon color/hover */
+.wrap .phone a svg,
+.wrap .social-media a svg {
+  color: #fff;
+}
+.wrap .social-media a:hover svg {
+  opacity: .9;
+  transform: translateY(-1px);
+  transition: transform .2s ease, opacity .2s ease;
+}
 
 
 
