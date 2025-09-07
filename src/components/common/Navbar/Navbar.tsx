@@ -108,7 +108,7 @@ const Navbar: React.FC = () => {
             {isDesktop ? (
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <a href={links[1]?.href ?? "index.html"} className="nav-link">
+                  <a href={links[1]?.href ?? "/"} className="nav-link">
                     {links[1]?.text ?? "Home"}
                   </a>
                 </li>

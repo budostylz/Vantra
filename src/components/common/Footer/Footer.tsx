@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { useOverlay } from "@/store/hooks";
 import OverlayEditor from "@/components/dev/OverlayEditor";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRocket } from "@fortawesome/free-solid-svg-icons";
+
 
 /* ---------- Tiny inline icons (no external CSS needed) ---------- */
 const TwitterIcon = (p: React.SVGProps<SVGSVGElement>) => (
@@ -130,10 +133,9 @@ const Footer: React.FC = () => {
                 <a
                   className="img mr-4 rounded"
                   style={{
-                    backgroundImage: `url(${
-                      images[0]?.src ??
+                    backgroundImage: `url(${images[0]?.src ??
                       "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/image_1.jpg"
-                    })`,
+                      })`,
                   }}
                 ></a>
                 <div className="text">
@@ -160,10 +162,9 @@ const Footer: React.FC = () => {
                 <a
                   className="img mr-4 rounded"
                   style={{
-                    backgroundImage: `url(${
-                      images[1]?.src ??
+                    backgroundImage: `url(${images[1]?.src ??
                       "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/image_2.jpg"
-                    })`,
+                      })`,
                   }}
                 ></a>
                 <div className="text">
@@ -263,9 +264,11 @@ const Footer: React.FC = () => {
             <div className="col-md-12 text-center ftco-animate" data-animate-effect="fadeInUp">
               <p className="copyright">
                 {text[22]?.value ?? "© "} {currentYear} {text[23]?.value ?? " Crafted with passion "}
-                <span aria-hidden="true" style={{ verticalAlign: "-0.15em", display: "inline-block" }}>
-                  <RocketIcon />
-                </span>{" "}
+                <FontAwesomeIcon
+                  icon={faRocket}
+                  style={{ fontSize: "1em", verticalAlign: "-0.12em", margin: "0 .25ch" }}
+                  aria-hidden="true"
+                />
                 {text[24]?.value ?? " on "}&nbsp;
                 <a href={links[19]?.href ?? "https://budoboost.ai"} target="_blank">
                   {links[19]?.text ?? "BudoBoost.ai"}
@@ -274,6 +277,7 @@ const Footer: React.FC = () => {
               </p>
             </div>
           </div>
+
         </div>
       </footer>
 
