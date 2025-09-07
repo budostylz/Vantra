@@ -164,7 +164,7 @@ export const overlayMap = {
             "tag": "a"
           },
           {
-            "value": "Washing",
+            "value": "",
             "tag": "span"
           },
           {
