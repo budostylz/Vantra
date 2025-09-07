@@ -413,32 +413,32 @@ export const overlayMap = {
           },
           {
             "tag": "a",
-            "href": "#",
+            "href": "/",
             "text": "Home"
           },
           {
             "tag": "a",
-            "href": "#",
+            "href": "/about",
             "text": "About"
           },
           {
             "tag": "a",
-            "href": "#",
+            "href": "/services",
             "text": "Services"
           },
           {
             "tag": "a",
-            "href": "#",
+            "href": "/gallery",
             "text": "Works"
           },
           {
             "tag": "a",
-            "href": "#",
+            "href": "/blog",
             "text": "Blog"
           },
           {
             "tag": "a",
-            "href": "#",
+            "href": "/contact",
             "text": "Contact"
           },
           {

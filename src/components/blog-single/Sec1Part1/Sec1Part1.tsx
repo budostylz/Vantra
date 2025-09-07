@@ -1,6 +1,25 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useOverlay } from "@/store/hooks";
 import OverlayEditor from "@/components/dev/OverlayEditor";
+
+/** Small chevron-right icon (inline SVG, no FA) */
+const ChevronRightIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    width="1em"
+    height="1em"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    focusable="false"
+    {...props}
+  >
+    <polyline points="9 18 15 12 9 6" />
+  </svg>
+);
 
 export default function Sec1Part1() {
   // Overlay wiring (auto-injected)
@@ -8,8 +27,49 @@ export default function Sec1Part1() {
   const OVERLAY_KEY = "sec1Part1";
   const { node: sec1Part1Overlay, text, links, images, variables } = useOverlay(ROUTE, OVERLAY_KEY);
 
+  // --- ftco-animate mimic (IntersectionObserver + stagger) ---
+  const sectionRef = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    const root = sectionRef.current;
+    if (!root) return;
+
+    const apply = (el: HTMLElement) => {
+      const eff = (el.getAttribute("data-animate-effect") || "").trim();
+      if (eff === "fadeIn") el.classList.add("fadeIn", "ftco-animated");
+      else if (eff === "fadeInLeft") el.classList.add("fadeInLeft", "ftco-animated");
+      else if (eff === "fadeInRight") el.classList.add("fadeInRight", "ftco-animated");
+      else el.classList.add("fadeInUp", "ftco-animated");
+      el.classList.remove("item-animate");
+    };
+
+    const runBatch = () => {
+      Array.from(root.querySelectorAll<HTMLElement>(".ftco-animate.item-animate")).forEach((el, i) =>
+        setTimeout(() => apply(el), i * 50)
+      );
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        let queued = false;
+        entries.forEach((entry) => {
+          const el = entry.target as HTMLElement;
+          if (entry.isIntersecting && !el.classList.contains("ftco-animated")) {
+            el.classList.add("item-animate");
+            queued = true;
+          }
+        });
+        if (queued) setTimeout(runBatch, 100);
+      },
+      { root: null, rootMargin: "0px 0px -5% 0px", threshold: 0 }
+    );
+
+    Array.from(root.querySelectorAll<HTMLElement>(".ftco-animate")).forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+  // ------------------------------------------------------------
+
   return (
-    <section className="ftco-section ftco-degree-bg">
+    <section ref={sectionRef} className="ftco-section ftco-degree-bg">
       <div className="container">
         <div className="row">
           <div className="col-lg-8 ftco-animate">
@@ -145,17 +205,59 @@ export default function Sec1Part1() {
                 </div>
               </form>
             </div>
-            <div className="sidebar-box ftco-animate">
+             <div className="sidebar-box ftco-animate">
               <div className="categories">
                 <h3>{text[22]?.value ?? "Services"}</h3>
-                <li><a href={links[5]?.href ?? "#"}>{links[5]?.text ?? "House Cleaning"} <span className="fa fa-chevron-right"></span></a></li>
-                <li><a href={links[6]?.href ?? "#"}>{links[6]?.text ?? "Roof Cleaning"} <span className="fa fa-chevron-right"></span></a></li>
-                <li><a href={links[7]?.href ?? "#"}>{links[7]?.text ?? "Driveway Cleaning"} <span className="fa fa-chevron-right"></span></a></li>
-                <li><a href={links[8]?.href ?? "#"}>{links[8]?.text ?? "Gutter Cleaning"} <span className="fa fa-chevron-right"></span></a></li>
-                <li><a href={links[9]?.href ?? "#"}>{links[9]?.text ?? "Patio Cleaning"} <span className="fa fa-chevron-right"></span></a></li>
-                <li><a href={links[10]?.href ?? "#"}>{links[10]?.text ?? "Building Cleaning"} <span className="fa fa-chevron-right"></span></a></li>
-                <li><a href={links[11]?.href ?? "#"}>{links[11]?.text ?? "Concrete Cleaning"} <span className="fa fa-chevron-right"></span></a></li>
-                <li><a href={links[12]?.href ?? "#"}>{links[12]?.text ?? "Sidewalk Cleaning"} <span className="fa fa-chevron-right"></span></a></li>
+
+                {/* Each link uses inline SVG chevron aligned to the right */}
+                <li>
+                  <a href={links[5]?.href ?? "#"} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    {links[5]?.text ?? "House Cleaning"}
+                    <ChevronRightIcon style={{ marginLeft: "auto", width: 16, height: 16, opacity: 0.6 }} />
+                  </a>
+                </li>
+                <li>
+                  <a href={links[6]?.href ?? "#"} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    {links[6]?.text ?? "Roof Cleaning"}
+                    <ChevronRightIcon style={{ marginLeft: "auto", width: 16, height: 16, opacity: 0.6 }} />
+                  </a>
+                </li>
+                <li>
+                  <a href={links[7]?.href ?? "#"} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    {links[7]?.text ?? "Driveway Cleaning"}
+                    <ChevronRightIcon style={{ marginLeft: "auto", width: 16, height: 16, opacity: 0.6 }} />
+                  </a>
+                </li>
+                <li>
+                  <a href={links[8]?.href ?? "#"} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    {links[8]?.text ?? "Gutter Cleaning"}
+                    <ChevronRightIcon style={{ marginLeft: "auto", width: 16, height: 16, opacity: 0.6 }} />
+                  </a>
+                </li>
+                <li>
+                  <a href={links[9]?.href ?? "#"} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    {links[9]?.text ?? "Patio Cleaning"}
+                    <ChevronRightIcon style={{ marginLeft: "auto", width: 16, height: 16, opacity: 0.6 }} />
+                  </a>
+                </li>
+                <li>
+                  <a href={links[10]?.href ?? "#"} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    {links[10]?.text ?? "Building Cleaning"}
+                    <ChevronRightIcon style={{ marginLeft: "auto", width: 16, height: 16, opacity: 0.6 }} />
+                  </a>
+                </li>
+                <li>
+                  <a href={links[11]?.href ?? "#"} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    {links[11]?.text ?? "Concrete Cleaning"}
+                    <ChevronRightIcon style={{ marginLeft: "auto", width: 16, height: 16, opacity: 0.6 }} />
+                  </a>
+                </li>
+                <li>
+                  <a href={links[12]?.href ?? "#"} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    {links[12]?.text ?? "Sidewalk Cleaning"}
+                    <ChevronRightIcon style={{ marginLeft: "auto", width: 16, height: 16, opacity: 0.6 }} />
+                  </a>
+                </li>
               </div>
             </div>
             <div className="sidebar-box ftco-animate">

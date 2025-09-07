@@ -193,32 +193,32 @@ const Footer: React.FC = () => {
               <h2 className="footer-heading">{text[11]?.value ?? "Quick Links"}</h2>
               <ul className="list-unstyled">
                 <li>
-                  <a href={links[11]?.href ?? "#"} className="py-2 d-block">
+                  <a href={links[11]?.href ?? "/"} className="py-2 d-block">
                     {links[11]?.text ?? "Home"}
                   </a>
                 </li>
                 <li>
-                  <a href={links[12]?.href ?? "#"} className="py-2 d-block">
+                  <a href={links[12]?.href ?? "/about"} className="py-2 d-block">
                     {links[12]?.text ?? "About"}
                   </a>
                 </li>
                 <li>
-                  <a href={links[13]?.href ?? "#"} className="py-2 d-block">
+                  <a href={links[13]?.href ?? "/services"} className="py-2 d-block">
                     {links[13]?.text ?? "Services"}
                   </a>
                 </li>
                 <li>
-                  <a href={links[14]?.href ?? "#"} className="py-2 d-block">
+                  <a href={links[14]?.href ?? "/gallery"} className="py-2 d-block">
                     {links[14]?.text ?? "Works"}
                   </a>
                 </li>
                 <li>
-                  <a href={links[15]?.href ?? "#"} className="py-2 d-block">
+                  <a href={links[15]?.href ?? "/blog"} className="py-2 d-block">
                     {links[15]?.text ?? "Blog"}
                   </a>
                 </li>
                 <li>
-                  <a href={links[16]?.href ?? "#"} className="py-2 d-block">
+                  <a href={links[16]?.href ?? "/contact"} className="py-2 d-block">
                     {links[16]?.text ?? "Contact"}
                   </a>
                 </li>
