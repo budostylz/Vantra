@@ -47,11 +47,8 @@
           {
             "value": "Instagram",
             "tag": "i"
-          },
-          {
-            "value": "Dribbble",
-            "tag": "i"
           }
+       
         ],
         "links": [
           {
@@ -66,24 +63,20 @@
           },
           {
             "tag": "a",
-            "href": "#",
+            "href": "https://www.facebook.com/",
             "text": "Facebook"
           },
           {
             "tag": "a",
-            "href": "#",
-            "text": "Twitter"
+            "href": "https://x.com/home",
+            "text": "X"
           },
           {
             "tag": "a",
-            "href": "#",
+            "href": "https://www.instagram.com/",
             "text": "Instagram"
-          },
-          {
-            "tag": "a",
-            "href": "#",
-            "text": "Dribbble"
           }
+          
         ],
         "images": [],
         "variables": [],

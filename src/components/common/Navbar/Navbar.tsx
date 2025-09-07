@@ -53,13 +53,43 @@ const Navbar: React.FC = () => {
     }
   };
 
+  // --- Active route helpers (sticky highlight) ---
+  const normalizePath = (href: string) => {
+    try {
+      const a = document.createElement("a");
+      a.href = href;
+      let p = a.pathname || "/";
+      p = p.replace(/index\.html?$/i, "/").replace(/\.html?$/i, "");
+      p = p.replace(/\/+$/g, "");
+      return (p || "/").toLowerCase();
+    } catch {
+      return "/";
+    }
+  };
+  const [activePath, setActivePath] = useState<string>(() => normalizePath(window.location.pathname));
+  useEffect(() => {
+    const sync = () => setActivePath(normalizePath(window.location.pathname));
+    // initial sync (SSR or late mount)
+    sync();
+    window.addEventListener("popstate", sync);
+    window.addEventListener("hashchange", sync);
+    return () => {
+      window.removeEventListener("popstate", sync);
+      window.removeEventListener("hashchange", sync);
+    };
+  }, []);
+  const markActiveAndMaybeClose = (href?: string) => {
+    if (href) setActivePath(normalizePath(href));
+    handleItemClick();
+  };
+  const isActive = (href?: string) => normalizePath(href || "/") === activePath;
+
   // FA fallback detection (shows ≡/× if FA CSS not loaded)
   const iconRef = useRef<HTMLSpanElement | null>(null);
   const [useFallbackIcon, setUseFallbackIcon] = useState(false);
   useEffect(() => {
     if (!iconRef.current) return;
     const before = window.getComputedStyle(iconRef.current, "::before").content;
-    // If FA isn't loaded, content is often 'none', 'normal', or '""'
     if (!before || before === "none" || before === "normal" || before === '""') {
       setUseFallbackIcon(true);
     } else {
@@ -67,11 +97,23 @@ const Navbar: React.FC = () => {
     }
   }, [isMobileOrTablet, open]);
 
+  // convenience defaults
+  const H_HOME = links[1]?.href ?? "/";
+  const H_ABOUT = links[2]?.href ?? "/about";
+  const H_SERVICES = links[3]?.href ?? "/services";
+  const H_GALLERY = links[4]?.href ?? "/gallery";
+  const H_BLOG = links[5]?.href ?? "/blog";
+  const H_CONTACT = links[6]?.href ?? "/contact";
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div className="container">
-          <a className="navbar-brand" href={links[0]?.href ?? "index.html"}>
+          <a
+            className="navbar-brand"
+            href={links[0]?.href ?? "index.html"}
+            onClick={() => markActiveAndMaybeClose(links[0]?.href ?? "/")}
+          >
             {links[0]?.text ?? "Pressure"} <span>{text[1]?.value ?? "Washing"}</span>
           </a>
 
@@ -107,33 +149,33 @@ const Navbar: React.FC = () => {
           <div className={`collapse navbar-collapse ${open || animating || isDesktop ? "show" : ""}`} id="ftco-nav">
             {isDesktop ? (
               <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                  <a href={links[1]?.href ?? "/"} className="nav-link">
+                <li className={`nav-item ${isActive(H_HOME) ? "active" : ""}`}>
+                  <a href={H_HOME} className="nav-link" onClick={() => markActiveAndMaybeClose(H_HOME)}>
                     {links[1]?.text ?? "Home"}
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a href={links[2]?.href ?? "/about"} className="nav-link">
+                <li className={`nav-item ${isActive(H_ABOUT) ? "active" : ""}`}>
+                  <a href={H_ABOUT} className="nav-link" onClick={() => markActiveAndMaybeClose(H_ABOUT)}>
                     {links[2]?.text ?? "About"}
                   </a>
                 </li>
-                <li className="nav-item active">
-                  <a href={links[3]?.href ?? "/services"} className="nav-link">
+                <li className={`nav-item ${isActive(H_SERVICES) ? "active" : ""}`}>
+                  <a href={H_SERVICES} className="nav-link" onClick={() => markActiveAndMaybeClose(H_SERVICES)}>
                     {links[3]?.text ?? "Services"}
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a href={links[4]?.href ?? "/gallery"} className="nav-link">
+                <li className={`nav-item ${isActive(H_GALLERY) ? "active" : ""}`}>
+                  <a href={H_GALLERY} className="nav-link" onClick={() => markActiveAndMaybeClose(H_GALLERY)}>
                     {links[4]?.text ?? "Gallery"}
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a href={links[5]?.href ?? "/blog"} className="nav-link">
+                <li className={`nav-item ${isActive(H_BLOG) ? "active" : ""}`}>
+                  <a href={H_BLOG} className="nav-link" onClick={() => markActiveAndMaybeClose(H_BLOG)}>
                     {links[5]?.text ?? "Blog"}
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a href={links[6]?.href ?? "/contact"} className="nav-link">
+                <li className={`nav-item ${isActive(H_CONTACT) ? "active" : ""}`}>
+                  <a href={H_CONTACT} className="nav-link" onClick={() => markActiveAndMaybeClose(H_CONTACT)}>
                     {links[6]?.text ?? "Contact"}
                   </a>
                 </li>
@@ -150,33 +192,33 @@ const Navbar: React.FC = () => {
                     transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                     style={{ overflow: "hidden" }}
                   >
-                    <li className="nav-item">
-                      <a href={links[1]?.href ?? "index.html"} className="nav-link">
+                    <li className={`nav-item ${isActive(H_HOME) ? "active" : ""}`}>
+                      <a href={H_HOME} className="nav-link" onClick={() => markActiveAndMaybeClose(H_HOME)}>
                         {links[1]?.text ?? "Home"}
                       </a>
                     </li>
-                    <li className="nav-item">
-                      <a href={links[2]?.href ?? "about.html"} className="nav-link">
+                    <li className={`nav-item ${isActive(H_ABOUT) ? "active" : ""}`}>
+                      <a href={H_ABOUT} className="nav-link" onClick={() => markActiveAndMaybeClose(H_ABOUT)}>
                         {links[2]?.text ?? "About"}
                       </a>
                     </li>
-                    <li className="nav-item active">
-                      <a href={links[3]?.href ?? "services.html"} className="nav-link">
+                    <li className={`nav-item ${isActive(H_SERVICES) ? "active" : ""}`}>
+                      <a href={H_SERVICES} className="nav-link" onClick={() => markActiveAndMaybeClose(H_SERVICES)}>
                         {links[3]?.text ?? "Services"}
                       </a>
                     </li>
-                    <li className="nav-item">
-                      <a href={links[4]?.href ?? "gallery.html"} className="nav-link">
+                    <li className={`nav-item ${isActive(H_GALLERY) ? "active" : ""}`}>
+                      <a href={H_GALLERY} className="nav-link" onClick={() => markActiveAndMaybeClose(H_GALLERY)}>
                         {links[4]?.text ?? "Gallery"}
                       </a>
                     </li>
-                    <li className="nav-item">
-                      <a href={links[5]?.href ?? "blog.html"} className="nav-link">
+                    <li className={`nav-item ${isActive(H_BLOG) ? "active" : ""}`}>
+                      <a href={H_BLOG} className="nav-link" onClick={() => markActiveAndMaybeClose(H_BLOG)}>
                         {links[5]?.text ?? "Blog"}
                       </a>
                     </li>
-                    <li className="nav-item">
-                      <a href={links[6]?.href ?? "contact.html"} className="nav-link">
+                    <li className={`nav-item ${isActive(H_CONTACT) ? "active" : ""}`}>
+                      <a href={H_CONTACT} className="nav-link" onClick={() => markActiveAndMaybeClose(H_CONTACT)}>
                         {links[6]?.text ?? "Contact"}
                       </a>
                     </li>

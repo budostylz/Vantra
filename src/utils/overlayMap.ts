@@ -45,17 +45,14 @@ export const overlayMap = {
             "tag": "i"
           },
           {
-            "value": "Twitter",
+            "value": "X",
             "tag": "i"
           },
           {
             "value": "Instagram",
             "tag": "i"
-          },
-          {
-            "value": "Dribbble",
-            "tag": "i"
           }
+         
         ],
         "links": [
           {
@@ -70,23 +67,18 @@ export const overlayMap = {
           },
           {
             "tag": "a",
-            "href": "#",
+            "href": "https://www.facebook.com/",
             "text": "Facebook"
           },
           {
             "tag": "a",
-            "href": "#",
-            "text": "Twitter"
+            "href": "",
+            "text": "X"
           },
           {
             "tag": "a",
-            "href": "#",
+            "href": "https://www.instagram.com/",
             "text": "Instagram"
-          },
-          {
-            "tag": "a",
-            "href": "#",
-            "text": "Dribbble"
           }
         ],
         "images": [],
@@ -358,18 +350,18 @@ export const overlayMap = {
         "links": [
           {
             "tag": "a",
-            "href": "#",
-            "text": ""
+            "href": "https://x.com/home",
+            "text": "X"
           },
           {
             "tag": "a",
-            "href": "#",
-            "text": ""
+            "href": "https://www.facebook.com/",
+            "text": "Facebook"
           },
           {
             "tag": "a",
-            "href": "#",
-            "text": ""
+            "href": "https://www.instagram.com/",
+            "text": "Instagram"
           },
           {
             "tag": "a",

@@ -21,9 +21,13 @@ const FacebookIcon = (p: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const TwitterIcon = (p: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" {...p}>
-    <path fill="currentColor" d="M23.954 4.569a10 10 0 0 1-2.825.775 4.93 4.93 0 0 0 2.163-2.723 9.864 9.864 0 0 1-3.127 1.195A4.92 4.92 0 0 0 16.616 3c-2.737 0-4.958 2.237-4.958 4.997 0 .39.042.77.128 1.135-4.118-.21-7.768-2.194-10.21-5.214a5.063 5.063 0 0 0-.67 2.513 5.03 5.03 0 0 0 2.2 4.163 4.86 4.86 0 0 1-2.25-.63v.065c0 2.43 1.697 4.46 3.95 4.92-.413.114-.85.175-1.3.175-.318 0-.626-.032-.926-.09.627 1.986 2.444 3.433 4.6 3.472A9.876 9.876 0 0 1 1 19.54 13.93 13.93 0 0 0 8.548 21.8c8.258 0 12.774-6.945 12.774-12.967 0-.2-.004-.399-.014-.596A9.28 9.28 0 0 0 24 5.557a9.02 9.02 0 0 1-2.046.512z" />
+/* NEW: X (formerly Twitter) icon */
+const XIcon = (p: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 512 512" width="1em" height="1em" aria-hidden="true" {...p}>
+    <path
+      fill="currentColor"
+      d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+    />
   </svg>
 );
 
@@ -46,7 +50,6 @@ export default function GlobalWrap0() {
   const OVERLAY_KEY = "globalWrap0";
   const { text, links } = useOverlay(ROUTE, OVERLAY_KEY);
 
-  // helpers for consistent sizing/alignment
   const iconStyle: React.CSSProperties = {
     width: "1.05em",
     height: "1.05em",
@@ -89,14 +92,12 @@ export default function GlobalWrap0() {
                   <a href={links[2]?.href ?? "#"} aria-label="Facebook" className="d-flex" style={socialBtnStyle}>
                     <FacebookIcon />
                   </a>
-                  <a href={links[3]?.href ?? "#"} aria-label="Twitter" className="d-flex" style={socialBtnStyle}>
-                    <TwitterIcon />
+                  {/* Replaced Twitter with X */}
+                  <a href={links[3]?.href ?? "https://x.com/"} aria-label="X (Twitter)" className="d-flex" style={socialBtnStyle}>
+                    <XIcon />
                   </a>
-                  <a href={links[4]?.href ?? "#"} aria-label="Instagram" className="d-flex" style={socialBtnStyle}>
+                  <a href={links[4]?.href ?? "https://www.instagram.com/"} aria-label="Instagram" className="d-flex" style={socialBtnStyle}>
                     <InstagramIcon />
-                  </a>
-                  <a href={links[5]?.href ?? "#"} aria-label="Dribbble" className="d-flex" style={socialBtnStyle}>
-                    <DribbbleIcon />
                   </a>
                 </p>
               </div>
