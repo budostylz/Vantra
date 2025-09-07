@@ -9669,6 +9669,34 @@ textarea.form-control {
   animation: loader-dash 1.5s ease-in-out infinite;
   stroke-linecap: round; }
 
+  /* Global stylesheet (e.g., styles.css) */
+.testimony-section .testimony-wrap .quote .quote-icon,
+.testimony-section .testimony-wrap .quote .svg-inline--fa, /* fallback for FA's default class */
+.testimony-section .testimony-wrap .quote svg {
+  color: #2f89fc !important;  /* beat template defaults */
+  font-size: 34px;            /* a bit larger like the original */
+  line-height: 1;
+  width: 1em;                 /* keep aspect ratio across browsers */
+  height: 1em;
+}
+
+/* Testimonials: never fade the cards */
+.carousel-testimony .owl-item,
+.carousel-testimony .owl-item .item,
+.carousel-testimony .owl-item.active {
+  opacity: 1 !important;
+  transition: none !important;
+}
+
+/* (Optional) Ensure no ftco fade applies inside the slider area */
+.testimony-section .carousel-testimony .ftco-animate {
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: none !important;
+}
+
+
+
 @-webkit-keyframes loader-rotate {
   100% {
     -webkit-transform: rotate(360deg);
