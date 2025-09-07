@@ -1,25 +1,76 @@
+import React, { useEffect, useRef } from "react";
 import { useOverlay } from "@/store/hooks";
 import OverlayEditor from "@/components/dev/OverlayEditor";
+
 export default function Sec0() {
-  // Overlay wiring (auto-injected)
   const ROUTE = "/about";
   const OVERLAY_KEY = "sec0";
-  const { node: sec0Overlay, text, links, images, variables } = useOverlay(ROUTE, OVERLAY_KEY);
+  const { text, links, images } = useOverlay(ROUTE, OVERLAY_KEY);
+
+  // --- ftco-animate mimic (IntersectionObserver + stagger) ---
+  const sectionRef = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    const root = sectionRef.current;
+    if (!root) return;
+
+    const apply = (el: HTMLElement) => {
+      const eff = (el.getAttribute("data-animate-effect") || "").trim();
+      if (eff === "fadeIn") el.classList.add("fadeIn", "ftco-animated");
+      else if (eff === "fadeInLeft") el.classList.add("fadeInLeft", "ftco-animated");
+      else if (eff === "fadeInRight") el.classList.add("fadeInRight", "ftco-animated");
+      else el.classList.add("fadeInUp", "ftco-animated"); // default
+      el.classList.remove("item-animate");
+    };
+
+    const batch = () => {
+      Array.from(root.querySelectorAll<HTMLElement>(".ftco-animate.item-animate")).forEach((el, i) =>
+        setTimeout(() => apply(el), i * 50)
+      );
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        let queued = false;
+        entries.forEach((e) => {
+          const el = e.target as HTMLElement;
+          if (e.isIntersecting && !el.classList.contains("ftco-animated")) {
+            el.classList.add("item-animate");
+            queued = true;
+          }
+        });
+        if (queued) setTimeout(batch, 100);
+      },
+      { root: null, rootMargin: "0px 0px -5% 0px", threshold: 0 }
+    );
+
+    Array.from(root.querySelectorAll<HTMLElement>(".ftco-animate")).forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+  // ------------------------------------------------------------
 
   return (
     <>
       <section
+        ref={sectionRef}
         className="hero-wrap hero-wrap-2"
-        style={{ backgroundImage: `url(${images[0]?.src ?? "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/bg_2.jpg"})` }}
+        style={{
+          backgroundImage: `url(${
+            images[0]?.src ??
+            "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/bg_2.jpg"
+          })`,
+        }}
         data-stellar-background-ratio="0.5"
       >
         <div className="overlay"></div>
         <div className="container">
           <div className="row no-gutters slider-text align-items-end">
-            <div className="col-md-9 ftco-animate pb-5">
+            <div
+              className="col-md-9 ftco-animate pb-5"
+              data-animate-effect="fadeInUp"
+            >
               <p className="breadcrumbs mb-2">
                 <span className="mr-2">
-                  <a href={links[0]?.href ?? "index.html"}>
+                  <a href={links[0]?.href ?? "/"}>
                     {links[0]?.text ?? "Home"} <i className="ion-ios-arrow-forward"></i>
                   </a>
                 </span>
@@ -32,6 +83,7 @@ export default function Sec0() {
           </div>
         </div>
       </section>
+
       <div className="container mt-6">
         <div
           style={{

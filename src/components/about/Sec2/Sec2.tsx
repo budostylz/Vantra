@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from "react";
 import { useOverlay } from "@/store/hooks";
 import OverlayEditor from "@/components/dev/OverlayEditor";
 
@@ -6,21 +6,83 @@ export default function Sec2() {
   // Overlay wiring (auto-injected)
   const ROUTE = "/about";
   const OVERLAY_KEY = "sec2";
-  const { node: sec2Overlay, text, links, images, variables } = useOverlay(ROUTE, OVERLAY_KEY);
+  const { text, links } = useOverlay(ROUTE, OVERLAY_KEY);
+
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const hasAnimatedRef = useRef(false);
+
+  useEffect(() => {
+    const sectionEl = sectionRef.current;
+    if (!sectionEl) return;
+
+    // number formatter like animateNumber's comma separator
+    const fmt = new Intl.NumberFormat("en-US");
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+
+    const animateValue = (el: HTMLElement, to: number, duration = 7000) => {
+      const start = 0;
+      const t0 = performance.now();
+
+      const step = (now: number) => {
+        const p = Math.min((now - t0) / duration, 1);
+        const eased = easeOutCubic(p);
+        const val = Math.floor(start + (to - start) * eased);
+        el.textContent = fmt.format(val);
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+
+    const onIntersect: IntersectionObserverCallback = (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || hasAnimatedRef.current) return;
+
+        hasAnimatedRef.current = true;
+
+        // Counter behavior
+        const nums = Array.from(sectionEl.querySelectorAll<HTMLElement>(".number"));
+        nums.forEach((n) => {
+          const target = Number(n.dataset.number ?? "0");
+          animateValue(n, target, 7000);
+        });
+
+        // ftco-animate mimic (Waypoints-style)
+        const anims = Array.from(sectionEl.querySelectorAll<HTMLElement>(".ftco-animate"));
+        setTimeout(() => {
+          anims.forEach((el, i) => {
+            setTimeout(() => el.classList.add("fadeInUp", "ftco-animated"), i * 50);
+          });
+        }, 100);
+
+        obs.unobserve(entry.target);
+      });
+    };
+
+    // offset '95%' equivalent
+    const io = new IntersectionObserver(onIntersect, {
+      root: null,
+      rootMargin: "0px 0px -5% 0px",
+      threshold: 0,
+    });
+
+    io.observe(sectionEl);
+    return () => io.disconnect();
+  }, []);
 
   return (
     <>
-      <section className="ftco-counter" id="section-counter">
+      <section ref={sectionRef} className="ftco-counter" id="section-counter">
         <div className="container">
           <div className="row">
             <div className="col-md-4 mb-5 mb-md-0 text-center text-md-left">
-              <h2 className="font-weight-bold" style={{ color: '#fff', fontSize: '20px' }}>
+              <h2 className="font-weight-bold" style={{ color: "#fff", fontSize: "20px" }}>
                 {text[0]?.value ?? "We Provide Free Quotation"}
               </h2>
               <a href={links[0]?.href ?? "#"} className="btn btn-white btn-outline-white">
                 {links[0]?.text ?? "Free Consultation"}
               </a>
             </div>
+
             <div className="col-md-8">
               <div className="row">
                 <div className="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
@@ -33,6 +95,7 @@ export default function Sec2() {
                     </div>
                   </div>
                 </div>
+
                 <div className="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
                   <div className="block-18 text-center">
                     <div className="text">
@@ -43,6 +106,7 @@ export default function Sec2() {
                     </div>
                   </div>
                 </div>
+
                 <div className="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
                   <div className="block-18 text-center">
                     <div className="text">
@@ -53,6 +117,7 @@ export default function Sec2() {
                     </div>
                   </div>
                 </div>
+
                 <div className="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
                   <div className="block-18 text-center">
                     <div className="text">
@@ -68,6 +133,8 @@ export default function Sec2() {
           </div>
         </div>
       </section>
+
+      {/* Editor panel */}
       <div className="container mt-6">
         <div
           style={{

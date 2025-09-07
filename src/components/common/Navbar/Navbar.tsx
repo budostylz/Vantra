@@ -113,27 +113,27 @@ const Navbar: React.FC = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href={links[2]?.href ?? "about.html"} className="nav-link">
+                  <a href={links[2]?.href ?? "/about"} className="nav-link">
                     {links[2]?.text ?? "About"}
                   </a>
                 </li>
                 <li className="nav-item active">
-                  <a href={links[3]?.href ?? "services.html"} className="nav-link">
+                  <a href={links[3]?.href ?? "/services"} className="nav-link">
                     {links[3]?.text ?? "Services"}
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href={links[4]?.href ?? "gallery.html"} className="nav-link">
+                  <a href={links[4]?.href ?? "/gallery"} className="nav-link">
                     {links[4]?.text ?? "Gallery"}
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href={links[5]?.href ?? "blog.html"} className="nav-link">
+                  <a href={links[5]?.href ?? "/blog"} className="nav-link">
                     {links[5]?.text ?? "Blog"}
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href={links[6]?.href ?? "contact.html"} className="nav-link">
+                  <a href={links[6]?.href ?? "/contact"} className="nav-link">
                     {links[6]?.text ?? "Contact"}
                   </a>
                 </li>

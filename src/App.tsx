@@ -22,13 +22,7 @@ import { usePreviewStore } from 'src/store/previewStore';
 
 export default function App() {
 
-
-
-
   const resetToDefaults = usePreviewStore((state) => state.resetToDefaults);
-
-
-
   // 🧪 DEV ONLY: Reset store on mount to preview defaults
   useEffect(() => {
     resetToDefaults();

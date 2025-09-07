@@ -199,37 +199,37 @@ export const overlayMap = {
         "links": [
           {
             "tag": "a",
-            "href": "index.html",
+            "href": "/",
             "text": "Pressure Washing"
           },
           {
             "tag": "a",
-            "href": "index.html",
+            "href": "/",
             "text": "Home"
           },
           {
             "tag": "a",
-            "href": "about.html",
+            "href": "/about",
             "text": "About"
           },
           {
             "tag": "a",
-            "href": "services.html",
+            "href": "/services",
             "text": "Services"
           },
           {
             "tag": "a",
-            "href": "gallery.html",
+            "href": "/gallery",
             "text": "Gallery"
           },
           {
             "tag": "a",
-            "href": "blog.html",
+            "href": "/blog",
             "text": "Blog"
           },
           {
             "tag": "a",
-            "href": "contact.html",
+            "href": "/contact",
             "text": "Contact"
           }
         ],
