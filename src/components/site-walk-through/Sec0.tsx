@@ -40,7 +40,7 @@ const FEATURES: Feature[] = [
   },
 ];
 
-const APP_HREF = "/walkthrough"; // change if your app entry is different
+const APP_HREF = "/walkthrough-app"; // change if your app entry is different
 
 const s = {
   section: {
