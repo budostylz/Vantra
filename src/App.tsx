@@ -16,6 +16,7 @@ import BlogSingle from "@/pages/blog-single";
 import Contact from "@/pages/contact";
 import Gallery from "@/pages/gallery";
 import Services from "@/pages/services";
+import SiteWalkThroughPage from "./pages/site-walk-through";
 import { useSetBackgroundsGlobal } from "@/hooks/useSetBackgrounds";
 
 import OverlayModeToggle from "@/components/dev/OverlayModeToggle";
@@ -121,6 +122,7 @@ function AnimatedRoutes() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/walkthrough" element={<SiteWalkThroughPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </motion.main>
