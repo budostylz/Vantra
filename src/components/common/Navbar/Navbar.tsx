@@ -105,6 +105,32 @@ const Navbar: React.FC = () => {
   const H_BLOG = links[5]?.href ?? "/blog";
   const H_CONTACT = links[6]?.href ?? "/contact";
 
+  const SERVICES = [
+    { icon: "🔍", label: "Smart Site Walkthrough + AI Estimator", href: "/walkthrough" },
+    { icon: "💰", label: "On-Site Pricing Calculator", href: "/calculator" },
+    { icon: "🧾", label: "Real-Time Quote Generator", href: "/generator" },
+    { icon: "📃", label: "Smart Contract Builder", href: "contract" },
+    { icon: "📸", label: "Photo Documentation + Job History", href: "photodocsandhistory" },
+    { icon: "🧠", label: "AI-Driven CRM", href: "crm" },
+    { icon: "🎙️", label: "Voice Notes + Observations", href: "voiceandobservations" },
+  ];
+
+  const [servicesOpen, setServicesOpen] = useState(false);        // desktop dropdown
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false); // mobile accordion
+  const servicesActive = SERVICES.some(s => isActive(s.href));
+
+  const servicesRef = useRef<HTMLLIElement | null>(null);
+  
+  useEffect(() => {
+    const onDown = (e: MouseEvent) => {
+      if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) setServicesOpen(false);
+    };
+    document.addEventListener("pointerdown", onDown);
+    return () => document.removeEventListener("pointerdown", onDown);
+  }, []);
+
+
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -159,11 +185,67 @@ const Navbar: React.FC = () => {
                     {links[2]?.text ?? "About"}
                   </a>
                 </li>
-                <li className={`nav-item ${isActive(H_SERVICES) ? "active" : ""}`}>
-                  <a href={H_SERVICES} className="nav-link" onClick={() => markActiveAndMaybeClose(H_SERVICES)}>
+
+
+                <li
+                  className={`nav-item ${servicesActive ? "active" : ""}`}
+                  onMouseEnter={() => setServicesOpen(true)}
+                  //onMouseLeave={() => setServicesOpen(false)}
+                  style={{ position: "relative" }}
+                  ref={servicesRef}
+                >
+                  <a
+                    href={H_SERVICES}
+                    className="nav-link"
+                    onClick={(e) => { e.preventDefault(); setServicesOpen(v => !v); }}
+                    aria-expanded={servicesOpen}
+                    style={{ display: "inline-flex", alignItems: "center" }}
+                  >
                     {links[3]?.text ?? "Services"}
+                    <span aria-hidden="true" style={{ marginLeft: 6, fontSize: "0.85em" }}>▾</span>
                   </a>
+
+                  {/* Dropdown */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "100%",
+                      left: 0,
+                      display: servicesOpen ? "block" : "none",
+                      marginTop: 0,
+                      minWidth: 260,
+                      background: "#fff",
+                      borderRadius: 8,
+                      boxShadow: "0 10px 28px rgba(0,0,0,.15)",
+                      padding: "8px 0",
+                      zIndex: 1050
+                    }}
+                  >
+                    {SERVICES.map(({ icon, label, href }) => (
+                      <a
+                        key={href}
+                        href={href}
+                        className="dropdown-item"
+                        onClick={() => { markActiveAndMaybeClose(href); setServicesOpen(false); }}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 10,
+                          padding: "10px 16px",
+                          textDecoration: "none",
+                          color: "#212529",
+                          whiteSpace: "nowrap"
+                        }}
+                      >
+                        <span aria-hidden="true" style={{ width: 20, textAlign: "center" }}>{icon}</span>
+                        <span>{label}</span>
+                      </a>
+                    ))}
+                  </div>
                 </li>
+
+
+
                 <li className={`nav-item ${isActive(H_GALLERY) ? "active" : ""}`}>
                   <a href={H_GALLERY} className="nav-link" onClick={() => markActiveAndMaybeClose(H_GALLERY)}>
                     {links[4]?.text ?? "Gallery"}
@@ -202,11 +284,66 @@ const Navbar: React.FC = () => {
                         {links[2]?.text ?? "About"}
                       </a>
                     </li>
-                    <li className={`nav-item ${isActive(H_SERVICES) ? "active" : ""}`}>
-                      <a href={H_SERVICES} className="nav-link" onClick={() => markActiveAndMaybeClose(H_SERVICES)}>
-                        {links[3]?.text ?? "Services"}
+
+
+                    <li className={`nav-item ${servicesActive ? "active" : ""}`}>
+                      {/* Toggle row (looks like other links; just right-aligns the +) */}
+                      <a
+                        href={H_SERVICES}
+                        className="nav-link"
+                        role="button"
+                        aria-expanded={mobileServicesOpen}
+                        aria-controls="mobile-services-submenu"
+                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setMobileServicesOpen(v => !v); }}
+                        style={{ color: "black" }}
+                      >
+                        <span>{links[3]?.text ?? "Services"}</span>
+                        <span aria-hidden="true" style={{ marginLeft: 8 }}>{mobileServicesOpen ? "–" : "+"}</span>
                       </a>
+
+                      {/* Submenu */}
+                      <AnimatePresence initial={false}>
+                        {mobileServicesOpen && (
+                          <motion.ul
+                            id="mobile-services-submenu"
+                            className="navbar-nav"
+                            initial={{ height: 0, opacity: 0, y: -4 }}
+                            animate={{ height: "auto", opacity: 1, y: 0 }}
+                            exit={{ height: 0, opacity: 0, y: -4 }}
+                            transition={{ duration: 0.25 }}
+                            onClick={(e) => e.stopPropagation()}        // prevent parent from closing
+                            style={{
+                              overflow: "hidden",
+                              margin: 0,
+                              padding: "0 0 0 12px"
+                            }}
+                          >
+                            {SERVICES.map(({ icon, label, href }) => (
+                              <li key={href} className={`nav-item ${isActive(href) ? "active" : ""}`}>
+                                <a
+                                  href={href}
+                                  className="nav-link"
+                                  onClick={(e) => { e.stopPropagation(); markActiveAndMaybeClose(href); setMobileServicesOpen(false); }}
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    padding: ".5rem 1rem",
+                                    textDecoration: "none",
+                                    color: "inherit"
+                                  }}
+                                >
+                                  <span aria-hidden="true" style={{ marginRight: 8 }}>{icon}</span>
+                                  {label}
+                                </a>
+                              </li>
+                            ))}
+                          </motion.ul>
+                        )}
+                      </AnimatePresence>
                     </li>
+
+
+
                     <li className={`nav-item ${isActive(H_GALLERY) ? "active" : ""}`}>
                       <a href={H_GALLERY} className="nav-link" onClick={() => markActiveAndMaybeClose(H_GALLERY)}>
                         {links[4]?.text ?? "Gallery"}

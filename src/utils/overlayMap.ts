@@ -3055,7 +3055,7 @@ export const overlayMap = {
             "tag": "span"
           },
           {
-            "value": "Pressure Washing Servicess",
+            "value": "Pressure Washing Services",
             "tag": "h1"
           }
         ],
