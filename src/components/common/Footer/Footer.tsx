@@ -7,13 +7,14 @@ import { faRocket } from "@fortawesome/free-solid-svg-icons";
 
 /* ---------- Tiny inline icons (no external CSS needed) ---------- */
 const XIcon = (p: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 512 512" width="1em" height="1em" aria-hidden="true" {...p}>
+  <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" {...p}>
     <path
       fill="currentColor"
-      d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+      d="M18 2h4l-7.53 8.55L23 22h-5l-5.02-6.55L7 22H3l8.02-9.45L1 2h5l4.98 6.5L18 2z"
     />
   </svg>
 );
+
 
 const FacebookIcon = (p: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" {...p}>
@@ -112,21 +113,37 @@ const Footer: React.FC = () => {
               </p>
               <ul className="ftco-footer-social p-0">
                 <li className="ftco-animate">
-                  <a href={links[0]?.href ?? "#"} title="Twitter" aria-label="Twitter">
+                  <a
+                    href={links[0]?.href ?? "#"}
+                    title="X"
+                    aria-label="X"
+                    style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", lineHeight: 0 }}
+                  >
                     <XIcon />
                   </a>
                 </li>
                 <li className="ftco-animate">
-                  <a href={links[1]?.href ?? "#"} title="Facebook" aria-label="Facebook">
+                  <a
+                    href={links[1]?.href ?? "#"}
+                    title="Facebook"
+                    aria-label="Facebook"
+                    style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", lineHeight: 0 }}
+                  >
                     <FacebookIcon />
                   </a>
                 </li>
                 <li className="ftco-animate">
-                  <a href={links[2]?.href ?? "#"} title="Instagram" aria-label="Instagram">
+                  <a
+                    href={links[2]?.href ?? "#"}
+                    title="Instagram"
+                    aria-label="Instagram"
+                    style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", lineHeight: 0 }}
+                  >
                     <InstagramIcon />
                   </a>
                 </li>
               </ul>
+
             </div>
 
             {/* Col 2 */}
