@@ -26,4 +26,11 @@ dist-ssr
 
 
 budoboost_backend/
-.env
+android
+
+# ONNX models (large binaries) – pulled at install
+/public/models/*.onnx
+
+# keep the folder tracked
+!public/models/.gitkeep
+
