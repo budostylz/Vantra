@@ -9,54 +9,47 @@
     "redirects": [
       {
         "source": "/",
-        "destination": "/vantra-business-services/",
+        "destination": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/",
         "type": 302
       }
     ],
     "rewrites": [
       {
+        "source": "/walkthrough-app",
+        "destination": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/index.html"
+      },
+      {
+        "source": "/walkthrough-app/**",
+        "destination": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/index.html"
+      },
+      {
         "source": "/walkthrough",
-        "destination": "/vantra-business-services/index.html"
+        "destination": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/index.html"
       },
       {
         "source": "/walkthrough/**",
-        "destination": "/vantra-business-services/index.html"
+        "destination": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/index.html"
       },
       {
-        "source": "/vantra-business-services",
-        "destination": "/vantra-business-services/index.html"
+        "source": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42",
+        "destination": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/index.html"
       },
       {
-        "source": "/vantra-business-services/**",
-        "destination": "/vantra-business-services/index.html"
+        "source": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/**",
+        "destination": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/index.html"
       }
     ],
     "headers": [
       {
-        "source": "**/*.@(js|css|svg|png|jpg|jpeg|gif|webp|woff2|ttf)",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public,max-age=31536000,immutable"
-          }
-        ]
-      },
-      {
-        "source": "/vantra-business-services/index.html",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "no-cache"
-          }
-        ]
-      },
-      {
         "source": "**/*.@(js|css|svg|png|jpg|jpeg|gif|webp|woff2|ttf|onnx)",
         "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public,max-age=31536000,immutable"
-          }
+          { "key": "Cache-Control", "value": "public,max-age=31536000,immutable" }
+        ]
+      },
+      {
+        "source": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/index.html",
+        "headers": [
+          { "key": "Cache-Control", "value": "no-cache" }
         ]
       }
     ]

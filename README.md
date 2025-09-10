@@ -58,3 +58,11 @@ curl -s -X POST \
 
 [XR8](https://www.8thwall.com/docs/api/engine/xr8/)
 
+## Manage Sites
+firebase hosting:sites:list
+
+firebase hosting:sites:delete SITE-ID -f
+
+npm run build 
+
+firebase deploy --only hosting  

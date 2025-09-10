@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     // Use subpath in prod so assets resolve under /enter-business-name/
-    base: isProd ? '/enter-business-name/' : '/',
+    base: isProd ? '/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/' : '/',
     plugins: [react()],
     resolve: {
       alias: {
@@ -22,7 +22,7 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       // Emit the site into a subfolder for Firebase Hosting deploys
-      outDir: isProd ? 'dist/enter-business-name' : 'dist',
+      outDir: isProd ? 'dist/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42' : 'dist',
       assetsDir: 'assets',
       emptyOutDir: true,
     },
