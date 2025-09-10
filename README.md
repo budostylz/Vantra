@@ -15,3 +15,46 @@
 🧠 AI-Driven CRM - crm
 🎙️ Voice Notes + Observations - voiceandobservations
 
+
+
+## Smart Site Walkthrough
+
+* Debris + Materials
+curl -s -X POST \
+  -H "Authorization: Token $REPLICATE_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -H "Prefer: wait" \
+  -d $'{
+    "version": "adirik/grounding-dino:efd10a8ddc57ea28773327e881ce95e20cc1d734c589f7dd01d2036921ed78aa",
+    "input": {
+      "image": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/canvasAssets/GLelFyrkvyMnLPTfOFY2xS6QT3t2/asset_01e55144-64f1-48df-b07c-5e31b0954018.jpg",
+      "query": "garage door, front door, window, exterior light, roof, gutter, driveway, shrub, tree, porch, house number, mailbox",
+      "box_threshold": 0.25,
+      "text_threshold": 0.25,
+      "show_visualisation": true
+    }
+  }' \
+  https://api.replicate.com/v1/predictions
+
+curl -s -X POST \
+  -H "Authorization: Token $REPLICATE_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -H "Prefer: wait" \
+  -d $'{
+    "version": "adirik/grounding-dino:efd10a8ddc57ea28773327e881ce95e20cc1d734c589f7dd01d2036921ed78aa",
+    "input": {
+      "image": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/canvasAssets/GLelFyrkvyMnLPTfOFY2xS6QT3t2/asset_01e55144-64f1-48df-b07c-5e31b0954018.jpg",
+      "query": "dirt",
+      "box_threshold": 0.25,
+      "text_threshold": 0.25,
+      "show_visualisation": true
+    }
+  }' \
+  https://api.replicate.com/v1/predictions
+
+
+* Auto Measure
+[8th Wall](https://www.8thwall.com/docs/api)
+
+[XR8](https://www.8thwall.com/docs/api/engine/xr8/)
+
