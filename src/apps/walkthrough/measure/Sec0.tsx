@@ -14,7 +14,7 @@ type Props = {
 };
 
 export function Measure({
-  projectUrl = "https://budoboost.8thwall.app/measure/",
+  projectUrl = "https://budoboost.8thwall.app/prod/",
   shareCode,
   onResult,
 }: Props) {

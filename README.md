@@ -58,6 +58,56 @@ curl -s -X POST \
 
 [XR8](https://www.8thwall.com/docs/api/engine/xr8/)
 
+https://budoboost.8thwall.app/prod/
+
+What you’ve already got
+
+Tap-drag to place a world-space rectangle on a detected plane.
+
+Live width × length in meters/feet + area (m²/ft²).
+
+Pricing breakdown (labor + base + extras) with unit toggle.
+
+Fast polish for the client demo
+
+Lock / Save: add a “Save” button to freeze the current rectangle into a list, then show subtotals + grand total.
+
+Undo / Reset: one-tap clear of the active rectangle or all saved ones.
+
+Screenshot: capture a photo with the overlay and numbers for the quote.
+
+Editable rates: tiny settings panel (rate, base, extras, currency) stored in localStorage.
+
+Snap/straighten: hold a modifier (or long-press) to square edges to the plane axes for crisp rectangles.
+
+Accuracy helper: show a “Move phone in a slow arc” hint until plane tracking stabilizes.
+
+Simple hooks to add next
+
+Save the current measurement
+
+Keep an array saved: {w:number,l:number,area:number,total:number}[].
+
+On “Save”, push the latest last and recompute totals.
+
+Export
+
+Build a CSV/JSON string and open a data URL so they can download or share.
+
+Production readiness checklist (8th Wall)
+
+Confirm Entry Space = Tap Place, Auto Update = on, and you’re publishing the latest commit in the Publish dialog.
+
+Open the public URL in a fresh tab (no query cache), and hard-refresh on iOS Safari (long-press reload → “Reload Without Content Blockers”) if numbers look stale.
+
+Test on iOS Safari and Android Chrome with good lighting and visible floor texture.
+
+Accuracy note (what to tell the client)
+
+With a flat, well-tracked floor and a short arc motion to initialize, expect ~1–3% error for rectangles sized a few meters across. Highly glossy/textureless floors or very oblique angles can increase error—do a short “N” or circle motion to re-lock tracking.
+
+If you want, I can add “Save / Export / Screenshot / Settings” into your current file in one pass.
+
 ## Manage Sites
 firebase hosting:sites:list
 
