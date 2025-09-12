@@ -209,7 +209,7 @@ const Sec0: React.FC = () => {
               <div style={s.subtitle}>Feature overview</div>
             </div>
           </div>
-          <a href={APP_HREF} onClick={(e) => { e.preventDefault(); open(APP_HREF); }} style={s.button}>
+          <a href={APP_HREF} onClick={(e) => { e.preventDefault(); /*open(APP_HREF);*/ }} style={s.button}>
             Open App
           </a>
         </header>

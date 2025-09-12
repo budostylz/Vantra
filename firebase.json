@@ -1,44 +1,20 @@
 {
   "hosting": {
     "public": "dist",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+
     "redirects": [
-      {
-        "source": "/",
-        "destination": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/",
-        "type": 302
-      }
+      { "source": "/", "destination": "https://budoboost.ai/", "type": 302 }
     ],
+
     "rewrites": [
-      {
-        "source": "/walkthrough-app",
-        "destination": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/index.html"
-      },
-      {
-        "source": "/walkthrough-app/**",
-        "destination": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/index.html"
-      },
-      {
-        "source": "/walkthrough",
-        "destination": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/index.html"
-      },
-      {
-        "source": "/walkthrough/**",
-        "destination": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/index.html"
-      },
-      {
-        "source": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42",
-        "destination": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/index.html"
-      },
-      {
-        "source": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/**",
-        "destination": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/index.html"
-      }
+      { "source": "/pretty-0bed919d70",    "destination": "/pretty-0bed919d70/index.html" },
+      { "source": "/pretty-0bed919d70/**", "destination": "/pretty-0bed919d70/index.html" },
+
+      { "source": "/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42",    "destination": "/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/index.html" },
+      { "source": "/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/**", "destination": "/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/index.html" }
     ],
+
     "headers": [
       {
         "source": "**/*.@(js|css|svg|png|jpg|jpeg|gif|webp|woff2|ttf|onnx)",
@@ -47,7 +23,13 @@
         ]
       },
       {
-        "source": "/vantra-business-services-qSKe8jlhMtNvudBqrdmcYljQMM42/index.html",
+        "source": "/pretty-0bed919d70/index.html",
+        "headers": [
+          { "key": "Cache-Control", "value": "no-cache" }
+        ]
+      },
+      {
+        "source": "/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/index.html",
         "headers": [
           { "key": "Cache-Control", "value": "no-cache" }
         ]

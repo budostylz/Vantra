@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { NavLink } from "react-router-dom";
 import { useOverlay } from "@/store/hooks";
 import OverlayEditor from "@/components/dev/OverlayEditor";
 
@@ -21,6 +22,10 @@ export default function Sec1() {
   const ROUTE = "/blog";
   const OVERLAY_KEY = "sec1";
   const { text, links, images } = useOverlay(ROUTE, OVERLAY_KEY);
+
+  // internal destination helper (falls back to blog-single)
+  const toBlogSingle = (maybe: string | undefined) =>
+    maybe && /^https?:\/\//i.test(maybe) ? maybe : "/blog-single";
 
   // --- ftco-animate mimic (IntersectionObserver + stagger) ---
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -94,8 +99,8 @@ export default function Sec1() {
             {/* Card 1 */}
             <div className="col-md-4 d-flex ftco-animate">
               <div className="blog-entry align-self-stretch" style={cardStyle}>
-                <a
-                  href={links[0]?.href ?? "/blog-single"}
+                <NavLink
+                  to={toBlogSingle(links[0]?.href)}
                   className="block-20 rounded"
                   style={imgStyle(
                     images[0]?.src ??
@@ -107,17 +112,17 @@ export default function Sec1() {
                     <div><a href={links[1]?.href ?? "#"}>{links[1]?.text ?? "June 14, 2020"}</a></div>
                     <div><a href={links[2]?.href ?? "#"}>{links[2]?.text ?? "Admin"}</a></div>
                     <div>
-                      <a
-                        href={links[3]?.href ?? "#"}
-                        className="meta-chat"
-                        style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
-                      >
+                      <a href={links[3]?.href ?? "#"} className="meta-chat" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
                         <ChatIcon style={{ color: "#2f89fc", width: 16, height: 16 }} />
                         {links[3]?.text ?? "3"}
                       </a>
                     </div>
                   </div>
-                  <h3 className="heading"><a href={links[4]?.href ?? "#"}>{links[4]?.text ?? "Even the all-powerful Pointing has no control about the blind texts"}</a></h3>
+                  <h3 className="heading">
+                    <NavLink to={toBlogSingle(links[4]?.href)}>
+                      {links[4]?.text ?? "Even the all-powerful Pointing has no control about the blind texts"}
+                    </NavLink>
+                  </h3>
                 </div>
               </div>
             </div>
@@ -125,8 +130,8 @@ export default function Sec1() {
             {/* Card 2 */}
             <div className="col-md-4 d-flex ftco-animate">
               <div className="blog-entry align-self-stretch" style={cardStyle}>
-                <a
-                  href={links[5]?.href ?? "/blog-single"}
+                <NavLink
+                  to={toBlogSingle(links[5]?.href)}
                   className="block-20 rounded"
                   style={imgStyle(
                     images[1]?.src ??
@@ -138,17 +143,17 @@ export default function Sec1() {
                     <div><a href={links[6]?.href ?? "#"}>{links[6]?.text ?? "June 14, 2020"}</a></div>
                     <div><a href={links[7]?.href ?? "#"}>{links[7]?.text ?? "Admin"}</a></div>
                     <div>
-                      <a
-                        href={links[8]?.href ?? "#"}
-                        className="meta-chat"
-                        style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
-                      >
+                      <a href={links[8]?.href ?? "#"} className="meta-chat" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
                         <ChatIcon style={{ color: "#2f89fc", width: 16, height: 16 }} />
                         {links[8]?.text ?? "3"}
                       </a>
                     </div>
                   </div>
-                  <h3 className="heading"><a href={links[9]?.href ?? "#"}>{links[9]?.text ?? "Even the all-powerful Pointing has no control about the blind texts"}</a></h3>
+                  <h3 className="heading">
+                    <NavLink to={toBlogSingle(links[9]?.href)}>
+                      {links[9]?.text ?? "Even the all-powerful Pointing has no control about the blind texts"}
+                    </NavLink>
+                  </h3>
                 </div>
               </div>
             </div>
@@ -156,8 +161,8 @@ export default function Sec1() {
             {/* Card 3 */}
             <div className="col-md-4 d-flex ftco-animate">
               <div className="blog-entry align-self-stretch" style={cardStyle}>
-                <a
-                  href={links[10]?.href ?? "/blog-single"}
+                <NavLink
+                  to={toBlogSingle(links[10]?.href)}
                   className="block-20 rounded"
                   style={imgStyle(
                     images[2]?.src ??
@@ -169,17 +174,17 @@ export default function Sec1() {
                     <div><a href={links[11]?.href ?? "#"}>{links[11]?.text ?? "June 14, 2020"}</a></div>
                     <div><a href={links[12]?.href ?? "#"}>{links[12]?.text ?? "Admin"}</a></div>
                     <div>
-                      <a
-                        href={links[13]?.href ?? "#"}
-                        className="meta-chat"
-                        style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
-                      >
+                      <a href={links[13]?.href ?? "#"} className="meta-chat" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
                         <ChatIcon style={{ color: "#2f89fc", width: 16, height: 16 }} />
                         {links[13]?.text ?? "3"}
                       </a>
                     </div>
                   </div>
-                  <h3 className="heading"><a href={links[14]?.href ?? "#"}>{links[14]?.text ?? "Even the all-powerful Pointing has no control about the blind texts"}</a></h3>
+                  <h3 className="heading">
+                    <NavLink to={toBlogSingle(links[14]?.href)}>
+                      {links[14]?.text ?? "Even the all-powerful Pointing has no control about the blind texts"}
+                    </NavLink>
+                  </h3>
                 </div>
               </div>
             </div>
@@ -187,8 +192,8 @@ export default function Sec1() {
             {/* Card 4 */}
             <div className="col-md-4 d-flex ftco-animate">
               <div className="blog-entry align-self-stretch" style={cardStyle}>
-                <a
-                  href={links[15]?.href ?? "/blog-single"}
+                <NavLink
+                  to={toBlogSingle(links[15]?.href)}
                   className="block-20 rounded"
                   style={imgStyle(
                     images[3]?.src ??
@@ -200,17 +205,17 @@ export default function Sec1() {
                     <div><a href={links[16]?.href ?? "#"}>{links[16]?.text ?? "June 14, 2020"}</a></div>
                     <div><a href={links[17]?.href ?? "#"}>{links[17]?.text ?? "Admin"}</a></div>
                     <div>
-                      <a
-                        href={links[18]?.href ?? "#"}
-                        className="meta-chat"
-                        style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
-                      >
+                      <a href={links[18]?.href ?? "#"} className="meta-chat" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
                         <ChatIcon style={{ color: "#2f89fc", width: 16, height: 16 }} />
                         {links[18]?.text ?? "3"}
                       </a>
                     </div>
                   </div>
-                  <h3 className="heading"><a href={links[19]?.href ?? "#"}>{links[19]?.text ?? "Even the all-powerful Pointing has no control about the blind texts"}</a></h3>
+                  <h3 className="heading">
+                    <NavLink to={toBlogSingle(links[19]?.href)}>
+                      {links[19]?.text ?? "Even the all-powerful Pointing has no control about the blind texts"}
+                    </NavLink>
+                  </h3>
                 </div>
               </div>
             </div>
@@ -218,8 +223,8 @@ export default function Sec1() {
             {/* Card 5 */}
             <div className="col-md-4 d-flex ftco-animate">
               <div className="blog-entry align-self-stretch" style={cardStyle}>
-                <a
-                  href={links[20]?.href ?? "/blog-single"}
+                <NavLink
+                  to={toBlogSingle(links[20]?.href)}
                   className="block-20 rounded"
                   style={imgStyle(
                     images[4]?.src ??
@@ -231,17 +236,17 @@ export default function Sec1() {
                     <div><a href={links[21]?.href ?? "#"}>{links[21]?.text ?? "June 14, 2020"}</a></div>
                     <div><a href={links[22]?.href ?? "#"}>{links[22]?.text ?? "Admin"}</a></div>
                     <div>
-                      <a
-                        href={links[23]?.href ?? "#"}
-                        className="meta-chat"
-                        style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
-                      >
+                      <a href={links[23]?.href ?? "#"} className="meta-chat" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
                         <ChatIcon style={{ color: "#2f89fc", width: 16, height: 16 }} />
                         {links[23]?.text ?? "3"}
                       </a>
                     </div>
                   </div>
-                  <h3 className="heading"><a href={links[24]?.href ?? "#"}>{links[24]?.text ?? "Even the all-powerful Pointing has no control about the blind texts"}</a></h3>
+                  <h3 className="heading">
+                    <NavLink to={toBlogSingle(links[24]?.href)}>
+                      {links[24]?.text ?? "Even the all-powerful Pointing has no control about the blind texts"}
+                    </NavLink>
+                  </h3>
                 </div>
               </div>
             </div>
@@ -249,8 +254,8 @@ export default function Sec1() {
             {/* Card 6 */}
             <div className="col-md-4 d-flex ftco-animate">
               <div className="blog-entry align-self-stretch" style={cardStyle}>
-                <a
-                  href={links[25]?.href ?? "/blog-single"}
+                <NavLink
+                  to={toBlogSingle(links[25]?.href)}
                   className="block-20 rounded"
                   style={imgStyle(
                     images[5]?.src ??
@@ -262,17 +267,17 @@ export default function Sec1() {
                     <div><a href={links[26]?.href ?? "#"}>{links[26]?.text ?? "June 14, 2020"}</a></div>
                     <div><a href={links[27]?.href ?? "#"}>{links[27]?.text ?? "Admin"}</a></div>
                     <div>
-                      <a
-                        href={links[28]?.href ?? "#"}
-                        className="meta-chat"
-                        style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
-                      >
+                      <a href={links[28]?.href ?? "#"} className="meta-chat" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
                         <ChatIcon style={{ color: "#2f89fc", width: 16, height: 16 }} />
                         {links[28]?.text ?? "3"}
                       </a>
                     </div>
                   </div>
-                  <h3 className="heading"><a href={links[29]?.href ?? "#"}>{links[29]?.text ?? "Even the all-powerful Pointing has no control about the blind texts"}</a></h3>
+                  <h3 className="heading">
+                    <NavLink to={toBlogSingle(links[29]?.href)}>
+                      {links[29]?.text ?? "Even the all-powerful Pointing has no control about the blind texts"}
+                    </NavLink>
+                  </h3>
                 </div>
               </div>
             </div>

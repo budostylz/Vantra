@@ -226,7 +226,7 @@ export const overlayMap = {
           {
             "tag": "a",
             "href": "/",
-            "text": "Pressure Washing"
+            "text": "Vantra"
           },
           {
             "tag": "a",
@@ -276,7 +276,7 @@ export const overlayMap = {
       "props": {
         "text": [
           {
-            "value": "Pressure Washing",
+            "value": "Vantra",
             "tag": "h2"
           },
           {
@@ -678,7 +678,7 @@ export const overlayMap = {
         "links": [
           {
             "tag": "a",
-            "href": "/blog-single",
+            "href": "vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/blog-single/",
             "text": ""
           },
           {
@@ -703,7 +703,7 @@ export const overlayMap = {
           },
           {
             "tag": "a",
-            "href": "/blog-single",
+            "href": "vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/blog-single/",
             "text": ""
           },
           {
@@ -728,7 +728,7 @@ export const overlayMap = {
           },
           {
             "tag": "a",
-            "href": "/blog-single",
+            "href": "vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/blog-single/",
             "text": ""
           },
           {
@@ -753,7 +753,7 @@ export const overlayMap = {
           },
           {
             "tag": "a",
-            "href": "/blog-single",
+            "href": "vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/blog-single/",
             "text": ""
           },
           {
@@ -778,7 +778,7 @@ export const overlayMap = {
           },
           {
             "tag": "a",
-            "href": "/blog-single",
+            "href": "vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/blog-single/",
             "text": ""
           },
           {
@@ -804,7 +804,7 @@ export const overlayMap = {
           {
             "tag": "a",
             "href": "#",
-            "text": "/blog-single"
+            "text": "vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/blog-single/"
           },
           {
             "tag": "a",
@@ -948,7 +948,7 @@ export const overlayMap = {
       "props": {
         "text": [
           {
-            "value": "Welcome Pressure Washing",
+            "value": "Welcome Vantra",
             "tag": "h2"
           },
           {
@@ -1170,7 +1170,7 @@ export const overlayMap = {
       "editable": true
     }
   },
-  "/blog-single": {
+  "vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/blog-single/": {
     "sec0": {
       "id": "8148b6ab69",
       "component": "Sec0",
@@ -2112,7 +2112,7 @@ export const overlayMap = {
       "props": {
         "text": [
           {
-            "value": "Pressure Washing Services",
+            "value": "Vantra Services",
             "tag": "h2"
           },
           {
@@ -2303,7 +2303,7 @@ export const overlayMap = {
         "links": [
           {
             "tag": "a",
-            "href": "/blog-single",
+            "href": "vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/blog-single/",
             "text": ""
           },
           {
@@ -2328,7 +2328,7 @@ export const overlayMap = {
           },
           {
             "tag": "a",
-            "href": "/blog-single",
+            "href": "vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/blog-single/",
             "text": ""
           },
           {
@@ -2353,7 +2353,7 @@ export const overlayMap = {
           },
           {
             "tag": "a",
-            "href": "/blog-single",
+            "href": "vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/blog-single/",
             "text": ""
           },
           {
@@ -3055,7 +3055,7 @@ export const overlayMap = {
             "tag": "span"
           },
           {
-            "value": "Pressure Washing Services",
+            "value": "Vantra Services",
             "tag": "h1"
           }
         ],
@@ -3088,7 +3088,7 @@ export const overlayMap = {
       "props": {
         "text": [
           {
-            "value": "Pressure Washing Services",
+            "value": "Vantra Services",
             "tag": "h2"
           },
           {

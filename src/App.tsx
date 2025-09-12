@@ -1,3 +1,4 @@
+// src/App.tsx
 import { useEffect } from "react";
 import {
   BrowserRouter,
@@ -118,19 +119,26 @@ function MainRoutes() {
 }
 
 export default function App() {
+  /*
   const resetToDefaults = usePreviewStore((s) => s.resetToDefaults);
 
   useEffect(() => {
-    resetToDefaults();
-    console.warn("🧼 Store reset to preview defaults (dev only)");
+    if (import.meta.env.DEV) {
+      resetToDefaults();
+      console.warn("🧼 Store reset to preview defaults (dev only)");
+    }
   }, [resetToDefaults]);
+  */
 
   useSetBackgroundsGlobal();
 
+  // Use Vite's base from vite.config; trims trailing slash for RR basename
+  const BASENAME = (import.meta.env.BASE_URL || "/").replace(/\/$/, "");
+
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={BASENAME}>
       <Routes>
-        {/* Standalone Walkthrough App */}
+        {/* Standalone Walkthrough App (still under the basename) */}
         <Route path="/walkthrough-app" element={<WalkthroughApp />} />
 
         {/* Main Site App */}

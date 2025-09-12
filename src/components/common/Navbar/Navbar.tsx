@@ -12,6 +12,16 @@ const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [animating, setAnimating] = useState(false);
 
+  // --- BASENAME helpers (Vite supplies BASE_URL; prod = "/tenant/", dev = "/") ---
+  const BASE = (import.meta.env.BASE_URL || "/").replace(/\/$/, ""); // no trailing slash
+  const withBase = (href?: string) => {
+    if (!href) return BASE || "/";
+    if (/^https?:\/\//i.test(href)) return href; // external
+    const p = href.startsWith("/") ? href : `/${href}`;
+    // avoid double-prefix if already has BASE
+    return p === BASE || p.startsWith(`${BASE}/`) ? p : `${BASE}${p}`;
+  };
+
   // Device detection
   const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false); // >= lg
@@ -56,9 +66,8 @@ const Navbar: React.FC = () => {
   // --- Active route helpers (sticky highlight) ---
   const normalizePath = (href: string) => {
     try {
-      const a = document.createElement("a");
-      a.href = href;
-      let p = a.pathname || "/";
+      const u = new URL(href, window.location.origin);
+      let p = u.pathname || "/";
       p = p.replace(/index\.html?$/i, "/").replace(/\.html?$/i, "");
       p = p.replace(/\/+$/g, "");
       return (p || "/").toLowerCase();
@@ -66,10 +75,13 @@ const Navbar: React.FC = () => {
       return "/";
     }
   };
-  const [activePath, setActivePath] = useState<string>(() => normalizePath(window.location.pathname));
+
+  const [activePath, setActivePath] = useState<string>(() =>
+    normalizePath(window.location.pathname)
+  );
+
   useEffect(() => {
     const sync = () => setActivePath(normalizePath(window.location.pathname));
-    // initial sync (SSR or late mount)
     sync();
     window.addEventListener("popstate", sync);
     window.addEventListener("hashchange", sync);
@@ -78,11 +90,13 @@ const Navbar: React.FC = () => {
       window.removeEventListener("hashchange", sync);
     };
   }, []);
+
   const markActiveAndMaybeClose = (href?: string) => {
-    if (href) setActivePath(normalizePath(href));
+    if (href) setActivePath(normalizePath(withBase(href)));
     handleItemClick();
   };
-  const isActive = (href?: string) => normalizePath(href || "/") === activePath;
+  const isActive = (href?: string) =>
+    normalizePath(withBase(href || "/")) === activePath;
 
   // FA fallback detection (shows ≡/× if FA CSS not loaded)
   const iconRef = useRef<HTMLSpanElement | null>(null);
@@ -97,7 +111,7 @@ const Navbar: React.FC = () => {
     }
   }, [isMobileOrTablet, open]);
 
-  // convenience defaults
+  // convenience defaults (raw paths; we prefix when rendering)
   const H_HOME = links[1]?.href ?? "/";
   const H_ABOUT = links[2]?.href ?? "/about";
   const H_SERVICES = links[3]?.href ?? "/services";
@@ -109,18 +123,17 @@ const Navbar: React.FC = () => {
     { icon: "🔍", label: "Smart Site Walkthrough + AI Estimator", href: "/walkthrough" },
     { icon: "💰", label: "On-Site Pricing Calculator", href: "/calculator" },
     { icon: "🧾", label: "Real-Time Quote Generator", href: "/generator" },
-    { icon: "📃", label: "Smart Contract Builder", href: "contract" },
-    { icon: "📸", label: "Photo Documentation + Job History", href: "photodocsandhistory" },
-    { icon: "🧠", label: "AI-Driven CRM", href: "crm" },
-    { icon: "🎙️", label: "Voice Notes + Observations", href: "voiceandobservations" },
+    { icon: "📃", label: "Smart Contract Builder", href: "/contract" },
+    { icon: "📸", label: "Photo Documentation + Job History", href: "/photodocsandhistory" },
+    { icon: "🧠", label: "AI-Driven CRM", href: "/crm" },
+    { icon: "🎙️", label: "Voice Notes + Observations", href: "/voiceandobservations" },
   ];
 
   const [servicesOpen, setServicesOpen] = useState(false);        // desktop dropdown
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false); // mobile accordion
-  const servicesActive = SERVICES.some(s => isActive(s.href));
+  const servicesActive = SERVICES.some((s) => isActive(s.href));
 
   const servicesRef = useRef<HTMLLIElement | null>(null);
-  
   useEffect(() => {
     const onDown = (e: MouseEvent) => {
       if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) setServicesOpen(false);
@@ -129,15 +142,13 @@ const Navbar: React.FC = () => {
     return () => document.removeEventListener("pointerdown", onDown);
   }, []);
 
-
-
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div className="container">
           <a
             className="navbar-brand"
-            href={links[0]?.href ?? "index.html"}
+            href={withBase(links[0]?.href ?? "/")}
             onClick={() => markActiveAndMaybeClose(links[0]?.href ?? "/")}
           >
             {links[0]?.text ?? "Pressure"} <span>{text[1]?.value ?? "Washing"}</span>
@@ -176,28 +187,29 @@ const Navbar: React.FC = () => {
             {isDesktop ? (
               <ul className="navbar-nav ml-auto">
                 <li className={`nav-item ${isActive(H_HOME) ? "active" : ""}`}>
-                  <a href={H_HOME} className="nav-link" onClick={() => markActiveAndMaybeClose(H_HOME)}>
+                  <a href={withBase(H_HOME)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_HOME)}>
                     {links[1]?.text ?? "Home"}
                   </a>
                 </li>
                 <li className={`nav-item ${isActive(H_ABOUT) ? "active" : ""}`}>
-                  <a href={H_ABOUT} className="nav-link" onClick={() => markActiveAndMaybeClose(H_ABOUT)}>
+                  <a href={withBase(H_ABOUT)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_ABOUT)}>
                     {links[2]?.text ?? "About"}
                   </a>
                 </li>
 
-
                 <li
                   className={`nav-item ${servicesActive ? "active" : ""}`}
                   onMouseEnter={() => setServicesOpen(true)}
-                  //onMouseLeave={() => setServicesOpen(false)}
                   style={{ position: "relative" }}
                   ref={servicesRef}
                 >
                   <a
-                    href={H_SERVICES}
+                    href={withBase(H_SERVICES)}
                     className="nav-link"
-                    onClick={(e) => { e.preventDefault(); setServicesOpen(v => !v); }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setServicesOpen((v) => !v);
+                    }}
                     aria-expanded={servicesOpen}
                     style={{ display: "inline-flex", alignItems: "center" }}
                   >
@@ -224,9 +236,12 @@ const Navbar: React.FC = () => {
                     {SERVICES.map(({ icon, label, href }) => (
                       <a
                         key={href}
-                        href={href}
+                        href={withBase(href)}
                         className="dropdown-item"
-                        onClick={() => { markActiveAndMaybeClose(href); setServicesOpen(false); }}
+                        onClick={() => {
+                          markActiveAndMaybeClose(href);
+                          setServicesOpen(false);
+                        }}
                         style={{
                           display: "flex",
                           alignItems: "center",
@@ -244,20 +259,18 @@ const Navbar: React.FC = () => {
                   </div>
                 </li>
 
-
-
                 <li className={`nav-item ${isActive(H_GALLERY) ? "active" : ""}`}>
-                  <a href={H_GALLERY} className="nav-link" onClick={() => markActiveAndMaybeClose(H_GALLERY)}>
+                  <a href={withBase(H_GALLERY)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_GALLERY)}>
                     {links[4]?.text ?? "Gallery"}
                   </a>
                 </li>
                 <li className={`nav-item ${isActive(H_BLOG) ? "active" : ""}`}>
-                  <a href={H_BLOG} className="nav-link" onClick={() => markActiveAndMaybeClose(H_BLOG)}>
+                  <a href={withBase(H_BLOG)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_BLOG)}>
                     {links[5]?.text ?? "Blog"}
                   </a>
                 </li>
                 <li className={`nav-item ${isActive(H_CONTACT) ? "active" : ""}`}>
-                  <a href={H_CONTACT} className="nav-link" onClick={() => markActiveAndMaybeClose(H_CONTACT)}>
+                  <a href={withBase(H_CONTACT)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_CONTACT)}>
                     {links[6]?.text ?? "Contact"}
                   </a>
                 </li>
@@ -275,21 +288,19 @@ const Navbar: React.FC = () => {
                     style={{ overflow: "hidden" }}
                   >
                     <li className={`nav-item ${isActive(H_HOME) ? "active" : ""}`}>
-                      <a href={H_HOME} className="nav-link" onClick={() => markActiveAndMaybeClose(H_HOME)}>
+                      <a href={withBase(H_HOME)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_HOME)}>
                         {links[1]?.text ?? "Home"}
                       </a>
                     </li>
                     <li className={`nav-item ${isActive(H_ABOUT) ? "active" : ""}`}>
-                      <a href={H_ABOUT} className="nav-link" onClick={() => markActiveAndMaybeClose(H_ABOUT)}>
+                      <a href={withBase(H_ABOUT)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_ABOUT)}>
                         {links[2]?.text ?? "About"}
                       </a>
                     </li>
 
-
                     <li className={`nav-item ${servicesActive ? "active" : ""}`}>
-                      {/* Toggle row (looks like other links; just right-aligns the +) */}
                       <a
-                        href={H_SERVICES}
+                        href={withBase(H_SERVICES)}
                         className="nav-link"
                         role="button"
                         aria-expanded={mobileServicesOpen}
@@ -311,26 +322,16 @@ const Navbar: React.FC = () => {
                             animate={{ height: "auto", opacity: 1, y: 0 }}
                             exit={{ height: 0, opacity: 0, y: -4 }}
                             transition={{ duration: 0.25 }}
-                            onClick={(e) => e.stopPropagation()}        // prevent parent from closing
-                            style={{
-                              overflow: "hidden",
-                              margin: 0,
-                              padding: "0 0 0 12px"
-                            }}
+                            onClick={(e) => e.stopPropagation()}
+                            style={{ overflow: "hidden", margin: 0, padding: "0 0 0 12px" }}
                           >
                             {SERVICES.map(({ icon, label, href }) => (
                               <li key={href} className={`nav-item ${isActive(href) ? "active" : ""}`}>
                                 <a
-                                  href={href}
+                                  href={withBase(href)}
                                   className="nav-link"
                                   onClick={(e) => { e.stopPropagation(); markActiveAndMaybeClose(href); setMobileServicesOpen(false); }}
-                                  style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    padding: ".5rem 1rem",
-                                    textDecoration: "none",
-                                    color: "inherit"
-                                  }}
+                                  style={{ display: "flex", alignItems: "center", padding: ".5rem 1rem", textDecoration: "none", color: "inherit" }}
                                 >
                                   <span aria-hidden="true" style={{ marginRight: 8 }}>{icon}</span>
                                   {label}
@@ -342,20 +343,18 @@ const Navbar: React.FC = () => {
                       </AnimatePresence>
                     </li>
 
-
-
                     <li className={`nav-item ${isActive(H_GALLERY) ? "active" : ""}`}>
-                      <a href={H_GALLERY} className="nav-link" onClick={() => markActiveAndMaybeClose(H_GALLERY)}>
+                      <a href={withBase(H_GALLERY)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_GALLERY)}>
                         {links[4]?.text ?? "Gallery"}
                       </a>
                     </li>
                     <li className={`nav-item ${isActive(H_BLOG) ? "active" : ""}`}>
-                      <a href={H_BLOG} className="nav-link" onClick={() => markActiveAndMaybeClose(H_BLOG)}>
+                      <a href={withBase(H_BLOG)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_BLOG)}>
                         {links[5]?.text ?? "Blog"}
                       </a>
                     </li>
                     <li className={`nav-item ${isActive(H_CONTACT) ? "active" : ""}`}>
-                      <a href={H_CONTACT} className="nav-link" onClick={() => markActiveAndMaybeClose(H_CONTACT)}>
+                      <a href={withBase(H_CONTACT)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_CONTACT)}>
                         {links[6]?.text ?? "Contact"}
                       </a>
                     </li>
