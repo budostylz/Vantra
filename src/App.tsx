@@ -24,6 +24,9 @@ import ContractPage from "./pages/contract";
 import PhotoDocAndHistoryPage from "./pages/photo-doc-and-history";
 import CRMPage from "./pages/crm";
 import VoiceAndObservationsPage from "./pages/voice-and-observations";
+import JanitorialOfficePage from "./pages/janitorial-office-cleaning-quote";
+import MoveOutMoveInCleaningPage from "./pages/move-out-move-in-cleaning-quote";
+import PostConstructionCleaningPage from "./pages/post-construction-cleaning-quote";
 import WalkthroughApp from "./pages/walkthrough";
 
 import { useSetBackgroundsGlobal } from "@/hooks/useSetBackgrounds";
@@ -123,6 +126,14 @@ function MainRoutes() {
           <Route path="/photodocsandhistory" element={<PhotoDocAndHistoryPage />} />
           <Route path="/crm" element={<CRMPage />} />
           <Route path="/voiceandobservations" element={<VoiceAndObservationsPage />} />
+
+          <Route path="/janitorial-office-cleaning-quote" element={<JanitorialOfficePage />} />
+          <Route path="/move-out-move-in-cleaning-quote" element={<MoveOutMoveInCleaningPage />} />
+          <Route path="/post-construction-cleaning-quote" element={<PostConstructionCleaningPage />} />
+
+
+
+
           <Route path="/auth-bridge" element={<AuthBridge />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
@@ -163,7 +174,7 @@ export default function App() {
   }, [resetToDefaults]);
   */
 
-  dumpOverlayMap();
+  //dumpOverlayMap();
 
   useSetBackgroundsGlobal();
 

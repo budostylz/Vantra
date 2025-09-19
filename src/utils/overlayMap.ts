@@ -1702,7 +1702,7 @@ export const overlayMap = {
             "tag": "label"
           },
           {
-            "value": "Send Message",
+            "value": "Submit Request",
             "tag": "input"
           }
         ],
@@ -2469,7 +2469,7 @@ export const overlayMap = {
             "tag": "option"
           },
           {
-            "value": "Send message",
+            "value": "Submit Request",
             "tag": "input"
           }
         ],
