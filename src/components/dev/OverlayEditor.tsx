@@ -421,7 +421,7 @@ const onURLChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
       src: uploadSrc,
       suggestedExt: (info?.format || "jpeg").toLowerCase(),
       uid: user.uid,
-      templateId: "templateA",
+      templateId: "vantra-qSKe8jlhMtNvudBqrdmcYljQMM42",
     });
 
     // 🔹 Persist final URL + metadata
@@ -560,7 +560,7 @@ const onURLChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
       src: finalSrc,
       suggestedExt: (finalFmt || "jpeg").toLowerCase(),
       uid: user.uid,            // ✅ add
-      templateId: "templateA",  // ✅ temporary hardcode per your note
+      templateId: "vantra-qSKe8jlhMtNvudBqrdmcYljQMM42",  // ✅ temporary hardcode per your note
     });
 
     finalSrc = url;
