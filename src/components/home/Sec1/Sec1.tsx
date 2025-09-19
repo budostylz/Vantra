@@ -80,10 +80,10 @@ export default function Sec1() {
           <div className="row">
             <div className="col-md-4 mb-5 mb-md-0 text-center text-md-left">
               <h2 className="font-weight-bold" style={{ color: "#fff", fontSize: "20px" }}>
-                {text[0]?.value ?? "We Provide Free Quotation"}
+                {text[0]?.value ?? "Get Your Free Quote Today"}
               </h2>
               <a href={links[0]?.href ?? "#"} className="btn btn-white btn-outline-white">
-                {links[0]?.text ?? "Free Consultation"}
+                {links[0]?.text ?? "Free Quote"}
               </a>
             </div>
             <div className="col-md-8">
