@@ -160,8 +160,8 @@ export const overlayMap = {
         "links": [
           {
             "tag": "a",
-            "href": "#",
-            "text": "Get Quote"
+            "href": "/service-cart-page",
+            "text": "Learn More"
           }
         ],
         "images": [

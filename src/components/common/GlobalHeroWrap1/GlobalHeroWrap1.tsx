@@ -44,7 +44,7 @@ export default function GlobalHeroWrap1() {
                 <span>{text[2]?.value ?? "Washing"}</span> {text[3]?.value ?? "Services"}
               </h1>
               <p>
-                <a href={links[0]?.href ?? "#"} className="btn btn-secondary mr-md-4 py-3 px-4">
+                <a href={links[0]?.href ?? "/service-cart-page"} className="btn btn-secondary mr-md-4 py-3 px-4">
                   {links[0]?.text ?? "Learn more"} <span className="ion-ios-arrow-forward"></span>
                 </a>
               </p>
