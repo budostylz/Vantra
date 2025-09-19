@@ -56,6 +56,13 @@ const FX: Record<string, Variants> = {
   },
 };
 
+function dumpOverlayMap() {
+  const map = usePreviewStore.getState().overlayMap;
+  // pretty-print to the console
+  console.log("overlayMap →", JSON.stringify(map, null, 2));
+  return map; // in case you want to use it programmatically
+}
+
 function MainRoutes() {
   const location = useLocation();
   const prefersReduced =
@@ -141,7 +148,8 @@ export default function App() {
   // const resetToDefaults = usePreviewStore((s) => s.resetToDefaults);
   // useEffect(() => { if (import.meta.env.DEV) resetToDefaults(); }, [resetToDefaults]);
 
-  
+
+  /*
   const resetToDefaults = usePreviewStore((state) => state.resetToDefaults);
 
   // DEV ONLY: reset preview store on mount
@@ -151,8 +159,9 @@ export default function App() {
       console.warn("🧼 Store reset to preview defaults (dev only)");
     }
   }, [resetToDefaults]);
+  */
 
-  
+  dumpOverlayMap();
 
   useSetBackgroundsGlobal();
   

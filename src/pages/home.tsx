@@ -15,7 +15,7 @@ export default function HomePage() {
       <div><GlobalHeroWrap1/></div>
       <div><Sec0 /></div>
       <div><Sec1 /></div>
-      <div><Sec2 /></div>
+      {/*<div><Sec2 /></div>*/}
       <div><Sec3 /></div>
       <div><Sec4 /></div>
       <div><Sec5 /></div>

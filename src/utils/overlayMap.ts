@@ -153,7 +153,7 @@ export const overlayMap = {
             "tag": "h1"
           },
           {
-            "value": "Learn more",
+            "value": "Get Quote",
             "tag": "a"
           }
         ],
@@ -161,7 +161,7 @@ export const overlayMap = {
           {
             "tag": "a",
             "href": "#",
-            "text": "Learn more"
+            "text": "Get Quote"
           }
         ],
         "images": [
@@ -2112,7 +2112,7 @@ export const overlayMap = {
       "props": {
         "text": [
           {
-            "value": "Vantra Services",
+            "value": "Popular Services",
             "tag": "h2"
           },
           {
@@ -2613,7 +2613,7 @@ export const overlayMap = {
       "props": {
         "text": [
           {
-            "value": "Before & After Services",
+            "value": "Popular Services",
             "tag": "h2"
           },
           {
@@ -3055,7 +3055,7 @@ export const overlayMap = {
             "tag": "span"
           },
           {
-            "value": "Vantra Services",
+            "value": "Popular Services",
             "tag": "h1"
           }
         ],
@@ -3088,7 +3088,7 @@ export const overlayMap = {
       "props": {
         "text": [
           {
-            "value": "Vantra Services",
+            "value": "Popular Services",
             "tag": "h2"
           },
           {
@@ -3215,7 +3215,7 @@ export const overlayMap = {
       "props": {
         "text": [
           {
-            "value": "Before & After Services",
+            "value": "Popular Services",
             "tag": "h2"
           },
           {

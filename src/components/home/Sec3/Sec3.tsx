@@ -90,7 +90,7 @@ export default function Sec3() {
         "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.",
       href: links[8]?.href ?? "#",
     },
-    {
+    /*{
       id: "services-4",
       pillText: links[3]?.text ?? "Gutter Cleaning",
       img:
@@ -125,7 +125,7 @@ export default function Sec3() {
         text[18]?.value ??
         "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.",
       href: links[11]?.href ?? "#",
-    },
+    },*/
   ];
 
   const ease = [0.22, 1, 0.36, 1] as const;
@@ -136,7 +136,7 @@ export default function Sec3() {
         <div className="container">
           <div className="row justify-content-center pb-5">
             <div className="col-md-7 heading-section text-center ftco-animate">
-              <h2>{text[0]?.value ?? "Before & After Services"}</h2>
+              <h2>{text[0]?.value ?? "Popular Services"}</h2>
             </div>
           </div>
 

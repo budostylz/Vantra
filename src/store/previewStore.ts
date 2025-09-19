@@ -45,7 +45,7 @@ export type OverlayNode = {
   editable: true;
 };
 
-type DesignMode = "design" | "preview";
+type DesignMode = "design" | "preview" | "golive";
 
 type PreviewStore = {
   dataVersion: string;
@@ -87,9 +87,20 @@ export const usePreviewStore = create<PreviewStore>()(
         overlayMap: overlayMapDefaults,
         activePath: "/",
 
+        // add "golive" to your DesignMode union elsewhere:
+        // type DesignMode = "design" | "preview" | "golive";
+
         uiDesignMode: "design",
-        setDesignMode: (m) => set((s) => (s.uiDesignMode === m ? s : { uiDesignMode: m })),
-        toggleDesignMode: () => set((s) => ({ uiDesignMode: s.uiDesignMode === "design" ? "preview" : "design" })),
+        setDesignMode: (m: DesignMode) =>
+          set((s) => (s.uiDesignMode === m ? s : { uiDesignMode: m })),
+
+        // cycle through Design → Preview → Go Live → (back to) Design
+        toggleDesignMode: () =>
+          set((s) => {
+            const order: DesignMode[] = ["design", "preview", "golive"];
+            const i = order.indexOf(s.uiDesignMode as DesignMode);
+            return { uiDesignMode: order[(i + 1) % order.length] };
+          }),
 
         getOverlayNode: (route, key) => (get().overlayMap as any)?.[route]?.[key],
         getOverlayProps: (route, key) => (get().overlayMap as any)?.[route]?.[key]?.props,
@@ -176,7 +187,7 @@ export const usePreviewStore = create<PreviewStore>()(
             activePath: "/",
           });
           if (clearPersist) {
-            try { localStorage.removeItem("preview-store"); } catch {}
+            try { localStorage.removeItem("preview-store"); } catch { }
           }
         },
       }),

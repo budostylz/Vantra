@@ -7,7 +7,7 @@ import { useOverlay } from "@/store/hooks";
 type Pos = { top: number; left: number }; // relative to visual viewport
 const LS_KEY = "oe:togglePos:v1";
 const DRAG_THRESHOLD = 6;
-const FALLBACK_W = 140;
+const FALLBACK_W = 210;
 const FALLBACK_H = 36;
 
 const keyFor = (isMobileOrTablet: boolean) => `${LS_KEY}:${isMobileOrTablet ? "m" : "d"}`;
@@ -29,10 +29,13 @@ export default function OverlayModeToggle() {
 
     const params = new URLSearchParams(window.location.search);
     const urlMode = (params.get("mode") || params.get("editor"))?.toLowerCase();
-    if (urlMode === "design" || urlMode === "preview") {
-      setMode(urlMode as "design" | "preview");
+    if (urlMode === "design" || urlMode === "preview" || urlMode === "golive") {
+      setMode(urlMode as any);
       return;
     }
+
+
+
     if (mode !== "preview") setMode("preview");
     // intentionally omit deps — this should only run once on mount
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -157,7 +160,7 @@ export default function OverlayModeToggle() {
       const k = keyFor(isMobileOrTablet);
       if (p) localStorage.setItem(k, JSON.stringify(p));
       else localStorage.removeItem(k);
-    } catch {}
+    } catch { }
   };
 
   const clampToViewport = (p: Pos): Pos => {
@@ -255,7 +258,7 @@ export default function OverlayModeToggle() {
     });
 
     return () => cancelAnimationFrame(raf);
-  }, [vv.width, vv.height, dockPad, isMobileOrTablet]); 
+  }, [vv.width, vv.height, dockPad, isMobileOrTablet]);
 
   // Compose style
   const wrapStyle: React.CSSProperties = useMemo(() => {
@@ -330,6 +333,19 @@ export default function OverlayModeToggle() {
         >
           Preview
         </button>
+        <button
+          type="button"
+          onClick={() => {
+            if (wasDragging.current) return;
+            setMode("golive");
+          }}
+          style={{ ...btn, ...(mode === "golive" ? btnActive : {}) }}
+          aria-pressed={mode === "golive"}
+          aria-label="Go Live"
+        >
+          Go&nbsp;Live
+        </button>
+
       </div>
     </div>,
     document.body

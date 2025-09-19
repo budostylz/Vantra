@@ -119,7 +119,7 @@ const Navbar: React.FC = () => {
   const H_BLOG = links[5]?.href ?? "/blog";
   const H_CONTACT = links[6]?.href ?? "/contact";
 
-  const SERVICES = [
+  /*const SERVICES = [
     { icon: "🔍", label: "Smart Site Walkthrough + AI Estimator", href: "/walkthrough" },
     { icon: "💰", label: "On-Site Pricing Calculator", href: "/calculator" },
     { icon: "🧾", label: "Real-Time Quote Generator", href: "/generator" },
@@ -127,7 +127,14 @@ const Navbar: React.FC = () => {
     { icon: "📸", label: "Photo Documentation + Job History", href: "/photodocsandhistory" },
     { icon: "🧠", label: "AI-Driven CRM", href: "/crm" },
     { icon: "🎙️", label: "Voice Notes + Observations", href: "/voiceandobservations" },
-  ];
+  ];*/
+
+  const SERVICES = [
+  { icon: "🧹", label: "Janitorial Office Cleaning Service Quote", href: "/janitorial-office-cleaning-quote" },
+  { icon: "🚚", label: "Move-out/Move-in Cleaning Quote", href: "/move-out-move-in-cleaning-quote" },
+  { icon: "🏗️", label: "Post Construction Cleaning Quote", href: "/post-construction-cleaning-quote" },
+];
+
 
   const [servicesOpen, setServicesOpen] = useState(false);        // desktop dropdown
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false); // mobile accordion
