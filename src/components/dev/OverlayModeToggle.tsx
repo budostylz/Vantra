@@ -1,8 +1,12 @@
 // src/components/dev/OverlayModeToggle.tsx
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import toast from "react-hot-toast";
 import { createPortal } from "react-dom";
 import { usePreviewStore } from "@/store/previewStore";
 import { useOverlay } from "@/store/hooks";
+import { exportOverlayJsonToStorage } from "@/utils/overlayExport";
+
+
 
 type Pos = { top: number; left: number }; // relative to visual viewport
 const LS_KEY = "oe:togglePos:v1";
@@ -335,9 +339,23 @@ export default function OverlayModeToggle() {
         </button>
         <button
           type="button"
-          onClick={() => {
+          onClick={async () => {
             if (wasDragging.current) return;
             setMode("golive");
+
+            try {
+              const result = await exportOverlayJsonToStorage({
+                name: "overlayMap",
+                includeMeta: true,
+                pretty: true,
+              });
+              console.log("Overlay exported:", result);
+
+              toast.success("Overlay exported successfully!");
+            } catch (err) {
+              console.error("Export failed", err);
+              toast.error("Failed to export overlay. Please try again.");
+            }
           }}
           style={{ ...btn, ...(mode === "golive" ? btnActive : {}) }}
           aria-pressed={mode === "golive"}
