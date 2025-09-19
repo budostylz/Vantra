@@ -13,6 +13,13 @@ export default function Sec1() {
   const { text, links, images } = useOverlay(ROUTE, OVERLAY_KEY);
   const [qty, setQty] = useState(1);
 
+  const POST_BUY_WITH_SHOP_URL =
+    "https://shop.app/checkout/85233566001/cn/hWN3APYaCFIC7fQOddVqNrDW/en-us/shoppay_login?_cs=3.AMPS&redirect_source=direct_checkout_product&tracking_unique=976c4f68-3683-47b6-b9d2-e4a76f96f93c&tracking_visit=633607ac-810C-4B0D-FA67-09CE3EDA1B70";
+
+  const POST_MORE_PAYMENT_OPTIONS_URL =
+    "https://www.escapechores.com/checkouts/cn/hWN3APdIuvFR7vhnWXYtopko/en-us?skip_shop_pay=true";
+
+
 
   // ftco-animate (IO + stagger)
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -145,30 +152,68 @@ export default function Sec1() {
             {/* Left: details text under the contact form */}
             <div className="col-md-7">
               <div className="p-md-4 p-3 bg-white rounded-3 shadow-sm">
-                {/* Quantity */}
+                {/* Quantity + CTAs */}
                 <label className="label d-block mb-2" htmlFor="qty">Quantity</label>
-                <div
-                  className="d-inline-flex align-items-center justify-content-between rounded-pill border px-3"
-                  style={{ height: 44, minWidth: 140 }}
-                >
-                  <button
-                    type="button"
-                    className="btn btn-link p-0"
-                    onClick={() => setQty((q) => Math.max(1, q - 1))}
-                    aria-label="Decrease quantity"
+
+                <div className="d-flex align-items-center flex-wrap" style={{ gap: 12 }}>
+                  {/* Quantity pill */}
+                  <div
+                    className="d-inline-flex align-items-center justify-content-between rounded-pill border px-3"
+                    style={{ height: 44, minWidth: 140 }}
                   >
-                    –
-                  </button>
-                  <span className="mx-3">{qty}</span>
-                  <button
-                    type="button"
-                    className="btn btn-link p-0"
-                    onClick={() => setQty((q) => q + 1)}
-                    aria-label="Increase quantity"
+                    <button
+                      type="button"
+                      className="btn btn-link p-0"
+                      onClick={() => setQty((q) => Math.max(1, q - 1))}
+                      aria-label="Decrease quantity"
+                    >
+                      –
+                    </button>
+                    <span className="mx-3">{qty}</span>
+                    <button
+                      type="button"
+                      className="btn btn-link p-0"
+                      onClick={() => setQty((q) => q + 1)}
+                      aria-label="Increase quantity"
+                    >
+                      +
+                    </button>
+                  </div>
+
+                  {/* Buy with Shop */}
+                  <a
+                    href={POST_BUY_WITH_SHOP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-secondary py-3 px-4"
+                    style={{
+                      borderRadius: 999,
+                      fontWeight: 700,
+                      letterSpacing: 0.4,
+                      paddingLeft: 22,
+                      paddingRight: 22,
+                      whiteSpace: "nowrap",
+                    }}
                   >
-                    +
-                  </button>
+                    Buy with Shop
+                  </a>
+
+                  {/* More payment options */}
+                  <a
+                    href={POST_MORE_PAYMENT_OPTIONS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      color: "#0f1841",
+                      textDecoration: "underline",
+                      fontWeight: 700,
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    More payment options
+                  </a>
                 </div>
+
 
                 {/* Description */}
                 <div className="mt-4" style={{ color: "#3b3b3b" }}>

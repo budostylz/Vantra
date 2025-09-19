@@ -1,34 +1,25 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useOverlay } from "@/store/hooks";
 import OverlayEditor from "@/components/dev/OverlayEditor";
+import EmblaCarousel from "@/components/carousel/EmblaCarousel";
+import ShareIcon from "@/components/icons/ShareIcon";
 
-/** Inline SVGs (no FA dependency) */
-const PinIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden focusable="false" {...props}>
-    <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z" />
-  </svg>
-);
-const PhoneIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden focusable="false" {...props}>
-    <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.1.37 2.28.57 3.5.57a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C10.4 22 2 13.6 2 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.22.2 2.4.57 3.5a1 1 0 0 1-.24 1.01l-2.2 2.28Z" />
-  </svg>
-);
-const PaperPlaneIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden focusable="false" {...props}>
-    <path d="M22 2 2.5 11.2a1 1 0 0 0 .08 1.84L9 15.5l2.46 6.45a1 1 0 0 0 1.85-.02L22 2Z" />
-  </svg>
-);
-const GlobeIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden focusable="false" {...props}>
-    <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 18a8 8 0 0 1 0-16v16Zm2.7-1.2c.8-1.25 1.3-3.05 1.3-4.8s-.5-3.55-1.3-4.8c1.9.55 3.3 2.6 3.3 4.8s-1.4 4.25-3.3 4.8Zm-5.4 0C7.5 17.55 7 15.75 7 14s.5-3.55 1.3-4.8C6.4 9.75 5 11.8 5 14s1.4 4.25 3.3 4.8Z" />
-  </svg>
-);
+
 
 export default function Sec1() {
   // Overlay wiring (auto-injected)
   const ROUTE = "/contact";
   const OVERLAY_KEY = "sec1";
   const { text, links, images } = useOverlay(ROUTE, OVERLAY_KEY);
+  const [qty, setQty] = useState(1);
+
+  // Add near the top of the file (constants)
+  const BUY_WITH_SHOP_URL =
+    "https://shop.app/checkout/85233566001/cn/hWN3ANcLVc1RzeHbNfwGm8vK/en-us/shoppay_login?_cs=3.AMPS&redirect_source=direct_checkout_product&tracking_unique=976c4f68-3683-47b6-b9d2-e4a76f96f93c&tracking_visit=633607ac-810C-4B0D-FA67-09CE3EDA1B70";
+  const MORE_PAYMENT_OPTIONS_URL =
+    "https://www.escapechores.com/checkouts/cn/hWN3ANi7oJCjAn66z0wYrcuY/en-us?skip_shop_pay=true";
+
+
 
   // ftco-animate (IO + stagger)
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -77,89 +68,58 @@ export default function Sec1() {
           <div className="row justify-content-center">
             <div className="col-md-12">
               <div className="wrapper">
-                <div className="row mb-5">
-                  <div className="col-md-3 ftco-animate" data-animate-effect="fadeInUp">
-                    <div className="dbox w-100 text-center">
-                      <div className="icon d-flex align-items-center justify-content-center">
-                        <PinIcon style={{ color: "#fff", width: 28, height: 28 }} />
-                      </div>
-                      <div className="text">
-                        <p><span>{text[0]?.value ?? "Address:"}</span> {text[1]?.value ?? "198 West 21th Street, Suite 721 New York NY 10016"}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-md-3 ftco-animate" data-animate-effect="fadeInUp">
-                    <div className="dbox w-100 text-center">
-                      <div className="icon d-flex align-items-center justify-content-center">
-                        <PhoneIcon style={{ color: "#fff", width: 28, height: 28 }} />
-                      </div>
-                      <div className="text">
-                        <p>
-                          <span>{text[2]?.value ?? "Phone:"}</span>
-                          <a href={links[0]?.href ?? "tel://1234567920"}>{links[0]?.text ?? "+ 1235 2355 98"}</a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-md-3 ftco-animate" data-animate-effect="fadeInUp">
-                    <div className="dbox w-100 text-center">
-                      <div className="icon d-flex align-items-center justify-content-center">
-                        <PaperPlaneIcon style={{ color: "#fff", width: 28, height: 28 }} />
-                      </div>
-                      <div className="text">
-                        <p>
-                          <span>{text[4]?.value ?? "Email:"}</span>
-                          <a href={links[1]?.href ?? "mailto:info@yoursite.com"}>{links[1]?.text ?? "info@yoursite.com"}</a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-md-3 ftco-animate" data-animate-effect="fadeInUp">
-                    <div className="dbox w-100 text-center">
-                      <div className="icon d-flex align-items-center justify-content-center">
-                        <GlobeIcon style={{ color: "#fff", width: 28, height: 28 }} />
-                      </div>
-                      <div className="text">
-                        <p>
-                          <span>{text[6]?.value ?? "Website "}</span>
-                          <a href={links[2]?.href ?? "#"}>{links[2]?.text ?? "yoursite.com"}</a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
                 <div className="row no-gutters">
                   <div className="col-md-7 ftco-animate" data-animate-effect="fadeInLeft">
                     <div className="contact-wrap w-100 p-md-5 p-4">
-                      <h3 className="mb-4">{text[8]?.value ?? "Contact Us"}</h3>
+                      <h3 className="mb-4">{/*text[8]?.value ??*/ "Janitorial Office Cleaning Service Quote"}</h3>
                       <form method="POST" id="contactForm" name="contactForm" className="contactForm">
                         <div className="row">
+
                           <div className="col-md-6">
                             <div className="form-group">
                               <label className="label" htmlFor="name">{text[9]?.value ?? "Full Name"}</label>
                               <input type="text" className="form-control" name="name" id="name" placeholder="Name" />
                             </div>
                           </div>
+
+                          <div className="col-md-6">
+                            <div className="form-group">
+                              <label className="label" htmlFor="phone">{/*text[10]?.value ??*/"Phone"}</label>
+                              <input type="email" className="form-control" name="email" id="phone" placeholder="Phone" />
+                            </div>
+                          </div>
+
+                          <div className="col-md-6">
+                            <div className="form-group">
+                              <label className="label" htmlFor="name">{/*text[9]?.value ??*/ "Company Name"}</label>
+                              <input type="text" className="form-control" name="company_name" id="company_name" placeholder="Company Name" />
+                            </div>
+                          </div>
+
                           <div className="col-md-6">
                             <div className="form-group">
                               <label className="label" htmlFor="email">{text[10]?.value ?? "Email Address"}</label>
                               <input type="email" className="form-control" name="email" id="email" placeholder="Email" />
                             </div>
                           </div>
-                          <div className="col-md-12">
+
+                          <div className="col-md-6">
                             <div className="form-group">
-                              <label className="label" htmlFor="subject">{text[11]?.value ?? "Subject"}</label>
-                              <input type="text" className="form-control" name="subject" id="subject" placeholder="Subject" />
+                              <label className="label" htmlFor="start_date">{/*text[10]?.value ??*/ "Start Date of Project"}</label>
+                              <input type="start-date" className="form-control" name="start_date" id="start_date" placeholder="Start Date of Project" />
+                            </div>
+                          </div>
+
+                          <div className="col-md-6">
+                            <div className="form-group">
+                              <label className="label" htmlFor="project_location">{/*text[10]?.value ??*/ "Project Location"}</label>
+                              <input type="project_location" className="form-control" name="project_location" id="project_location" placeholder="Project Location" />
                             </div>
                           </div>
                           <div className="col-md-12">
                             <div className="form-group">
-                              <label className="label" htmlFor="#">{text[12]?.value ?? "Message"}</label>
-                              <textarea name="message" className="form-control" id="message" cols={30} rows={4} placeholder="Message"></textarea>
+                              <label className="label" htmlFor="#">{/*text[12]?.value ??*/ "Tell Us About Your Project"}</label>
+                              <textarea name="project_info" className="form-control" id="project_info" cols={30} rows={4} placeholder="Tell Us About Your Project"></textarea>
                             </div>
                           </div>
                           <div className="col-md-12">
@@ -177,10 +137,9 @@ export default function Sec1() {
                     <div
                       className="info-wrap w-100 p-5 img"
                       style={{
-                        backgroundImage: `url(${
-                          images[0]?.src ??
+                        backgroundImage: `url(${images[0]?.src ??
                           "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/about-1.jpg"
-                        })`,
+                          })`,
                       }}
                     />
                   </div>
@@ -188,8 +147,136 @@ export default function Sec1() {
               </div>
             </div>
           </div>
+
+          <div className="row mt-5">
+            {/* Left: details text under the contact form */}
+            <div className="col-md-7">
+              <div className="p-md-4 p-3 bg-white rounded-3 shadow-sm">
+                {/* Quantity + CTAs */}
+                <label className="label d-block mb-2" htmlFor="qty">
+                  Quantity
+                </label>
+
+                <div
+                  className="d-flex align-items-center flex-wrap"
+                  style={{ gap: 12 }}
+                >
+                  {/* Quantity pill */}
+                  <div
+                    className="d-inline-flex align-items-center justify-content-between rounded-pill border px-3"
+                    style={{ height: 44, minWidth: 140 }}
+                  >
+                    <button
+                      type="button"
+                      className="btn btn-link p-0"
+                      onClick={() => setQty((q) => Math.max(1, q - 1))}
+                      aria-label="Decrease quantity"
+                    >
+                      –
+                    </button>
+                    <span className="mx-3">{qty}</span>
+                    <button
+                      type="button"
+                      className="btn btn-link p-0"
+                      onClick={() => setQty((q) => q + 1)}
+                      aria-label="Increase quantity"
+                    >
+                      +
+                    </button>
+                  </div>
+
+                  {/* Buy with Shop (pill) */}
+                  <a
+                    href={BUY_WITH_SHOP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-secondary py-3 px-4"
+                    style={{
+                      borderRadius: 999,
+                      fontWeight: 700,
+                      letterSpacing: 0.4,
+                      paddingLeft: 22,
+                      paddingRight: 22,
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    Buy with Shop
+                  </a>
+
+                  {/* More payment options (high contrast) */}
+                  <a
+                    href={MORE_PAYMENT_OPTIONS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      color: "#0f1841",
+                      textDecoration: "underline",
+                      fontWeight: 700,
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    More payment options
+                  </a>
+                </div>
+
+                {/* Description */}
+                <div className="mt-4" style={{ color: "#3b3b3b" }}>
+                  <p>
+                    We offer affordable and high quality janitorial services to all clients.
+                    Request a quote for daily, weekly or bi-weekly cleaning and we would be happy
+                    to assign our top performers to keep your space clean and smelling wonderful.
+                  </p>
+                </div>
+
+                {/* Share */}
+                <div className="d-flex align-items-center gap-2 mt-4">
+                  <a
+                    href="#"
+                    onClick={(e) => e.preventDefault()}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 8,
+                      color: "#0f1841",
+                      textDecoration: "underline",
+                      lineHeight: 1,
+                    }}
+                  >
+                    <ShareIcon
+                      size={16}
+                      style={{ flex: "0 0 auto", position: "relative", top: 1 }}
+                    />
+                    <span style={{ fontWeight: 600 }}>Share</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: slider area under the image */}
+            <div className="col-md-5">
+              <div className="p-md-4 p-3 bg-white rounded-3 shadow-sm h-100">
+                <h5 className="mb-3">Project Gallery</h5>
+                <EmblaCarousel
+                  slides={
+                    (images?.length
+                      ? images.map((i) => i?.src).filter(Boolean)
+                      : [
+                        "https://images.unsplash.com/photo-1503387762-592deb58ef4e",
+                        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40",
+                        "https://images.unsplash.com/photo-1487014679447-9f8336841d58",
+                      ]) as string[]
+                  }
+                  options={{ loop: true, align: "center", containScroll: "trimSnaps" }}
+                  height={240}
+                  radius={16}
+                />
+              </div>
+            </div>
+          </div>
+
+
         </div>
-      </section>
+      </section >
 
       <div className="container mt-6">
         <div

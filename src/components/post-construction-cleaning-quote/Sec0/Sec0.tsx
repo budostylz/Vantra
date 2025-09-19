@@ -73,10 +73,10 @@ export default function Sec0() {
                   </a>
                 </span>
                 <span>
-                  {text[1]?.value ?? "Contact"} <i className="ion-ios-arrow-forward"></i>
+                  {/*text[1]?.value ??*/ "Post Construction Cleaning Quote"} <i className="ion-ios-arrow-forward"></i>
                 </span>
               </p>
-              <h1 className="mb-0 bread">{text[2]?.value ?? "Contact"}</h1>
+              <h1 className="mb-0 bread">{/*text[2]?.value ??*/ "Post Construction Cleaning Quote"}</h1>
             </div>
           </div>
         </div>

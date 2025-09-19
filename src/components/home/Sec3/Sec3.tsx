@@ -55,7 +55,7 @@ export default function Sec3() {
 
   const items = [
     {
-      id: "services-1",
+      id: "janitorial-office-cleaning-quote",
       pillText: links[0]?.text ?? "House Washing",
       img:
         images[0]?.src ??
@@ -64,7 +64,7 @@ export default function Sec3() {
       desc:
         text[8]?.value ??
         "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.",
-      href: links[6]?.href ?? "#",
+      href: links[6]?.href ?? "/janitorial-office-cleaning-quote",
     },
     {
       id: "services-2",
@@ -90,42 +90,6 @@ export default function Sec3() {
         "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.",
       href: links[8]?.href ?? "#",
     },
-    /*{
-      id: "services-4",
-      pillText: links[3]?.text ?? "Gutter Cleaning",
-      img:
-        images[3]?.src ??
-        "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/services-4.jpg",
-      title: links[9]?.text ?? "Gutter Cleaning",
-      desc:
-        text[14]?.value ??
-        "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.",
-      href: links[9]?.href ?? "#",
-    },
-    {
-      id: "services-5",
-      pillText: links[4]?.text ?? "Patio Cleaning",
-      img:
-        images[4]?.src ??
-        "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/services-5.jpg",
-      title: links[10]?.text ?? "Patio Cleaning",
-      desc:
-        text[16]?.value ??
-        "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.",
-      href: links[10]?.href ?? "#",
-    },
-    {
-      id: "services-6",
-      pillText: links[5]?.text ?? "Building Cleaning",
-      img:
-        images[5]?.src ??
-        "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/services-6.jpg",
-      title: links[11]?.text ?? "Building Cleaning",
-      desc:
-        text[18]?.value ??
-        "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.",
-      href: links[11]?.href ?? "#",
-    },*/
   ];
 
   const ease = [0.22, 1, 0.36, 1] as const;
@@ -147,17 +111,24 @@ export default function Sec3() {
                 {items.map((it, idx) => (
                   <li className="nav-item text-left" key={it.id}>
                     <a
-                      href={`#${it.id}`}
+                      href={items[idx].href || `/${it.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`nav-link py-4 ${active === idx ? "active" : ""}`}
                       role="tab"
                       aria-selected={active === idx}
                       onClick={(e) => {
+                        // keep the tab switch in this page
                         e.preventDefault();
                         setActive(idx);
+                        // open the linked service in a new tab
+                        const url = items[idx].href || `/${it.id}`;
+                        window.open(url, "_blank", "noopener");
                       }}
                     >
                       {it.pillText}
                     </a>
+
                   </li>
                 ))}
               </ul>
@@ -189,7 +160,9 @@ export default function Sec3() {
                       exit={{ opacity: 0, y: -8 }}
                       transition={{ duration: 0.3, ease }}
                     >
-                      <a href={items[active].href}>{items[active].title}</a>
+                      <a href={items[active].href} target="_blank" rel="noopener noreferrer">
+                        {items[active].title}
+                      </a>
                     </motion.h3>
                     <motion.p
                       initial={{ opacity: 0, y: 6 }}
