@@ -4,10 +4,9 @@ import { createPortal } from "react-dom";
 import { usePreviewStore } from "@/store/previewStore";
 import { useOverlay } from "@/store/hooks";
 
-
 type Pos = { top: number; left: number }; // relative to visual viewport
 const LS_KEY = "oe:togglePos:v1";
-const DRAG_THRESHOLD = 6; // px before considering it a drag
+const DRAG_THRESHOLD = 6;
 const FALLBACK_W = 140;
 const FALLBACK_H = 36;
 
@@ -17,15 +16,33 @@ export default function OverlayModeToggle() {
   // Overlay wiring (auto-injected)
   const ROUTE = "/dev";
   const OVERLAY_KEY = "overlayModeToggle";
-  const { node: overlayModeToggleOverlay } = useOverlay(ROUTE, OVERLAY_KEY);
+  useOverlay(ROUTE, OVERLAY_KEY); // node not needed here
 
-  const mode = usePreviewStore((s) => s.uiDesignMode);
-  const setMode = usePreviewStore((s) => s.setDesignMode);
+  const mode = usePreviewStore((s) => s.uiDesignMode);         // "design" | "preview"
+  const setMode = usePreviewStore((s) => s.setDesignMode);     // (m: "design" | "preview") => void
+
+  // ✅ On first mount, default to preview unless URL explicitly asks for design
+  const didInitRef = useRef(false);
+  useEffect(() => {
+    if (didInitRef.current) return;
+    didInitRef.current = true;
+
+    const params = new URLSearchParams(window.location.search);
+    const urlMode = (params.get("mode") || params.get("editor"))?.toLowerCase();
+    if (urlMode === "design" || urlMode === "preview") {
+      setMode(urlMode as "design" | "preview");
+      return;
+    }
+    if (mode !== "preview") setMode("preview");
+    // intentionally omit deps — this should only run once on mount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const [mounted, setMounted] = useState(false);
 
-  // Mobile / tablet detector
+  // Device detection
   const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
   useEffect(() => {
     const checkDevice = () => {
       const w = window.innerWidth;
@@ -34,6 +51,7 @@ export default function OverlayModeToggle() {
       const isMobile = w <= 640;
       const isLandscape = w > h;
       setIsMobileOrTablet(isMobile || isTablet || isLandscape);
+      setIsDesktop(w >= 992);
     };
     checkDevice();
     window.addEventListener("resize", checkDevice);
@@ -157,7 +175,7 @@ export default function OverlayModeToggle() {
   };
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (e.button !== 0) return; // primary only
+    if (e.button !== 0) return;
     const el = wrapRef.current;
     if (!el) return;
 
@@ -215,7 +233,6 @@ export default function OverlayModeToggle() {
     if (!wrapRef.current) return;
 
     const raf = requestAnimationFrame(() => {
-      // measure size (fallbacks already set)
       const rect = wrapRef.current!.getBoundingClientRect();
       chipSize.current = {
         w: rect.width || FALLBACK_W,
@@ -230,7 +247,6 @@ export default function OverlayModeToggle() {
         }
       }
 
-      // visibility guard: if (for any reason) we render fully off-screen, reset to default (null)
       const vw = vv.width || window.innerWidth;
       const vh = vv.height || window.innerHeight;
       const offscreen =
@@ -239,7 +255,7 @@ export default function OverlayModeToggle() {
     });
 
     return () => cancelAnimationFrame(raf);
-  }, [vv.width, vv.height, dockPad, isMobileOrTablet]); // runs on rotate, keyboard, URL bar, and device-class switch
+  }, [vv.width, vv.height, dockPad, isMobileOrTablet]); 
 
   // Compose style
   const wrapStyle: React.CSSProperties = useMemo(() => {
@@ -247,7 +263,6 @@ export default function OverlayModeToggle() {
     const baseRight = `calc(env(safe-area-inset-right, 0px) + ${12 + dockPad}px)`;
 
     if (!pos) {
-      // default pin to top-right; on desktop also compensate for vv.left
       const base: React.CSSProperties = {
         position: "fixed",
         zIndex: 2147483647,
@@ -264,7 +279,6 @@ export default function OverlayModeToggle() {
       return isMobileOrTablet ? base : { ...base, transform: `translate3d(${-vv.left}px, 0, 0)` };
     }
 
-    // dragged: use absolute top/left in visual coords
     const topPx = pos.top + vv.top;
     const leftPx = pos.left + (isMobileOrTablet ? 0 : vv.left);
 

@@ -34,7 +34,11 @@ import GlobalWrap0 from "./components/common/GlobalWrap0/GlobalWrap0";
 import Navbar from "./components/common/Navbar/Navbar";
 import Footer from "./components/common/Footer/Footer";
 
-import { usePreviewStore } from "src/store/previewStore";
+import { usePreviewStore } from "@/store/previewStore";
+
+
+// If you ever enable this again, keep it client-only.
+// import { usePreviewStore } from "src/store/previewStore";
 
 /* ---- Page FX presets ---- */
 const FX: Record<string, Variants> = {
@@ -62,8 +66,8 @@ function MainRoutes() {
   const fxName =
     new URLSearchParams(search).get("anim") ||
     new URLSearchParams(search).get("fx") ||
-    document.documentElement.dataset.pageFx ||
-    localStorage.getItem("pageFx") ||
+    (typeof document !== "undefined" ? document.documentElement.dataset.pageFx : undefined) ||
+    (typeof localStorage !== "undefined" ? localStorage.getItem("pageFx") : null) ||
     "zoomIn";
 
   const variants = FX[fxName] || FX.zoomIn;
@@ -118,22 +122,42 @@ function MainRoutes() {
   );
 }
 
-export default function App() {
-  /*
-  const resetToDefaults = usePreviewStore((s) => s.resetToDefaults);
+/** Compute a safe basename from Vite's BASE_URL.
+ *  - "/" or "./"  -> "/"
+ *  - "/foo/"      -> "/foo"
+ */
+function getBaseName(): string {
+  const raw = import.meta?.env?.BASE_URL ?? "/";
+  if (raw === "/" || raw === "./" || raw === "") return "/";
+  try {
+    const pathname = new URL(raw, typeof window !== "undefined" ? window.location.origin : "http://localhost").pathname;
+    return pathname.replace(/\/$/, "") || "/";
+  } catch {
+    return "/";
+  }
+}
 
+export default function App() {
+  // const resetToDefaults = usePreviewStore((s) => s.resetToDefaults);
+  // useEffect(() => { if (import.meta.env.DEV) resetToDefaults(); }, [resetToDefaults]);
+
+  
+  const resetToDefaults = usePreviewStore((state) => state.resetToDefaults);
+
+  // DEV ONLY: reset preview store on mount
   useEffect(() => {
     if (import.meta.env.DEV) {
       resetToDefaults();
       console.warn("🧼 Store reset to preview defaults (dev only)");
     }
   }, [resetToDefaults]);
-  */
+
+  
 
   useSetBackgroundsGlobal();
+  
 
-  // Use Vite's base from vite.config; trims trailing slash for RR basename
-  const BASENAME = (import.meta.env.BASE_URL || "/").replace(/\/$/, "");
+  const BASENAME = getBaseName();
 
   return (
     <BrowserRouter basename={BASENAME}>

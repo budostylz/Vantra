@@ -191,12 +191,6 @@ const Navbar: React.FC = () => {
                     {links[1]?.text ?? "Home"}
                   </a>
                 </li>
-                <li className={`nav-item ${isActive(H_ABOUT) ? "active" : ""}`}>
-                  <a href={withBase(H_ABOUT)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_ABOUT)}>
-                    {links[2]?.text ?? "About"}
-                  </a>
-                </li>
-
                 <li
                   className={`nav-item ${servicesActive ? "active" : ""}`}
                   onMouseEnter={() => setServicesOpen(true)}
@@ -259,21 +253,31 @@ const Navbar: React.FC = () => {
                   </div>
                 </li>
 
+                 <li className={`nav-item ${isActive(H_CONTACT) ? "active" : ""}`}>
+                  <a href={withBase(H_CONTACT)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_CONTACT)}>
+                    {links[6]?.text ?? "Contact"}
+                  </a>
+                </li>
+
+                <li className={`nav-item ${isActive(H_ABOUT) ? "active" : ""}`}>
+                  <a href={withBase(H_ABOUT)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_ABOUT)}>
+                    {links[2]?.text ?? "About"}
+                  </a>
+                </li>
+
+                 <li className={`nav-item ${isActive(H_BLOG) ? "active" : ""}`}>
+                  <a href={withBase(H_BLOG)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_BLOG)}>
+                    {links[5]?.text ?? "Careers"}
+                  </a>
+                </li>
+
                 <li className={`nav-item ${isActive(H_GALLERY) ? "active" : ""}`}>
                   <a href={withBase(H_GALLERY)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_GALLERY)}>
                     {links[4]?.text ?? "Gallery"}
                   </a>
                 </li>
-                <li className={`nav-item ${isActive(H_BLOG) ? "active" : ""}`}>
-                  <a href={withBase(H_BLOG)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_BLOG)}>
-                    {links[5]?.text ?? "Blog"}
-                  </a>
-                </li>
-                <li className={`nav-item ${isActive(H_CONTACT) ? "active" : ""}`}>
-                  <a href={withBase(H_CONTACT)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_CONTACT)}>
-                    {links[6]?.text ?? "Contact"}
-                  </a>
-                </li>
+               
+
               </ul>
             ) : (
               <AnimatePresence initial={false} onExitComplete={() => setAnimating(false)}>
@@ -292,12 +296,6 @@ const Navbar: React.FC = () => {
                         {links[1]?.text ?? "Home"}
                       </a>
                     </li>
-                    <li className={`nav-item ${isActive(H_ABOUT) ? "active" : ""}`}>
-                      <a href={withBase(H_ABOUT)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_ABOUT)}>
-                        {links[2]?.text ?? "About"}
-                      </a>
-                    </li>
-
                     <li className={`nav-item ${servicesActive ? "active" : ""}`}>
                       <a
                         href={withBase(H_SERVICES)}
@@ -342,6 +340,13 @@ const Navbar: React.FC = () => {
                         )}
                       </AnimatePresence>
                     </li>
+                    <li className={`nav-item ${isActive(H_ABOUT) ? "active" : ""}`}>
+                      <a href={withBase(H_ABOUT)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_ABOUT)}>
+                        {links[2]?.text ?? "About"}
+                      </a>
+                    </li>
+
+
 
                     <li className={`nav-item ${isActive(H_GALLERY) ? "active" : ""}`}>
                       <a href={withBase(H_GALLERY)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_GALLERY)}>

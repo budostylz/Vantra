@@ -214,7 +214,7 @@ export const overlayMap = {
             "tag": "a"
           },
           {
-            "value": "Blog",
+            "value": "Careers",
             "tag": "a"
           },
           {
@@ -251,7 +251,7 @@ export const overlayMap = {
           {
             "tag": "a",
             "href": "/blog",
-            "text": "Blog"
+            "text": "Careers"
           },
           {
             "tag": "a",
