@@ -28,6 +28,7 @@ import JanitorialOfficePage from "./pages/janitorial-office-cleaning-quote";
 import MoveOutMoveInCleaningPage from "./pages/move-out-move-in-cleaning-quote";
 import PostConstructionCleaningPage from "./pages/post-construction-cleaning-quote";
 import ServiceCartPage from "./pages/service-cart-page";
+import CareersPage from "./pages/careers";
 import WalkthroughApp from "./pages/walkthrough";
 
 import { useSetBackgroundsGlobal } from "@/hooks/useSetBackgrounds";
@@ -132,8 +133,7 @@ function MainRoutes() {
           <Route path="/move-out-move-in-cleaning-quote" element={<MoveOutMoveInCleaningPage />} />
           <Route path="/post-construction-cleaning-quote" element={<PostConstructionCleaningPage />} />
           <Route path="/service-cart-page" element={<ServiceCartPage />} />
-
-
+          <Route path="/careers" element={<CareersPage />} />
 
 
 

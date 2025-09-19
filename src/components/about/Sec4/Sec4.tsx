@@ -3,44 +3,55 @@ import React from "react";
 
 export default function Sec4() {
   return (
-    <section className="ftco-section bg-light">
+    <section
+      className="ftco-section bg-light"
+      // Trim the default top spacing to pull content closer to the header
+      style={{ paddingTop: "16px", paddingBottom: "48px" }}
+    >
       <div className="container">
-        <div className="mb-5">
-          <div className="row align-items-start" style={{ gap: 12 }}>
-            {/* Portrait */}
-            <div className="col-md-3">
-              <div
-                style={{
-                  width: "100%",
-                  aspectRatio: "1 / 1",
-                  borderRadius: 12,
-                  overflow: "hidden",
-                  boxShadow: "0 8px 24px rgba(15,24,65,.08)",
-                }}
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=640&auto=format&fit=crop"
-                  alt="Founder portrait"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                />
-              </div>
+        {/* Intro row (portrait + copy) — compact spacing */}
+        <div
+          // Flex instead of grid for tighter control
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            gap: 16,
+            marginBottom: 20, // smaller than mb-5
+          }}
+        >
+          {/* Portrait */}
+          <div style={{ flex: "0 0 260px", maxWidth: 320 }}>
+            <div
+              style={{
+                width: "100%",
+                aspectRatio: "1 / 1",
+                borderRadius: 12,
+                overflow: "hidden",
+                boxShadow: "0 8px 24px rgba(15,24,65,.08)",
+              }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=640&auto=format&fit=crop"
+                alt="Founder portrait"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
             </div>
+          </div>
 
-            {/* Intro copy */}
-            <div className="col-md-9">
-              <p>
-                Escape Chores, LLC is a veteran-owned, woman-led cleaning company dedicated to
-                delivering exceptional post-construction cleaning and janitorial services. Led by CEO
-                Raven Bernard, a retired Navy veteran with a commitment to precision, discipline, and
-                excellence, we proudly serve businesses and builders who need dependable quality.
-              </p>
-            </div>
+          {/* Intro copy */}
+          <div style={{ flex: "1 1 auto" }}>
+            <p style={{ marginTop: 0 }}>
+              Escape Chores, LLC is a veteran-owned, woman-led cleaning company dedicated to
+              delivering exceptional post-construction cleaning and janitorial services. Led by CEO
+              Raven Bernard, a retired Navy veteran with a commitment to precision, discipline, and
+              excellence, we proudly serve businesses and builders who need dependable quality.
+            </p>
           </div>
         </div>
 
         {/* Core Competencies */}
-        <div className="mb-5">
-          <h5 className="mb-3" style={{ fontWeight: 800 }}>Core Competencies</h5>
+        <div style={{ marginBottom: 28 }}>
+          <h5 className="mb-3" style={{ fontWeight: 800, marginTop: 0 }}>Core Competencies</h5>
 
           <div className="mb-3">
             <h6 className="mb-2" style={{ fontWeight: 700 }}>Post-Construction Cleaning:</h6>
@@ -72,8 +83,8 @@ export default function Sec4() {
         </div>
 
         {/* Differentiators */}
-        <div className="mb-5">
-          <h5 className="mb-3" style={{ fontWeight: 800 }}>Differentiators</h5>
+        <div style={{ marginBottom: 28 }}>
+          <h5 className="mb-3" style={{ fontWeight: 800, marginTop: 0 }}>Differentiators</h5>
           <ul className="pl-3" style={{ lineHeight: 1.75 }}>
             <li><strong>Veteran Leadership:</strong> Navy background instills discipline, reliability, and excellence.</li>
             <li><strong>Locally Rooted:</strong> Deep understanding of Hampton Roads community needs.</li>
@@ -84,8 +95,8 @@ export default function Sec4() {
         </div>
 
         {/* Past Performance */}
-        <div className="mb-5">
-          <h5 className="mb-3" style={{ fontWeight: 800 }}>Past Performance</h5>
+        <div style={{ marginBottom: 28 }}>
+          <h5 className="mb-3" style={{ fontWeight: 800, marginTop: 0 }}>Past Performance</h5>
           <ul className="pl-3" style={{ lineHeight: 1.75 }}>
             <li>Delivered post-construction cleaning for commercial and residential projects.</li>
             <li>Provided janitorial services that improved workplace cleanliness and productivity.</li>
@@ -94,8 +105,8 @@ export default function Sec4() {
         </div>
 
         {/* Certifications and Qualifications */}
-        <div className="mb-4">
-          <h5 className="mb-3" style={{ fontWeight: 800 }}>Certifications and Qualifications</h5>
+        <div style={{ marginBottom: 20 }}>
+          <h5 className="mb-3" style={{ fontWeight: 800, marginTop: 0 }}>Certifications and Qualifications</h5>
           <ul className="pl-3" style={{ lineHeight: 1.75 }}>
             <li>Veteran-Owned Small Business (VOSB).</li>
             <li>Insured and bonded for client peace of mind.</li>
@@ -105,14 +116,13 @@ export default function Sec4() {
 
         {/* Services Offered (compact list) */}
         <div>
-          <h6 className="mb-2" style={{ fontWeight: 700 }}>Services offered:</h6>
+          <h6 className="mb-2" style={{ fontWeight: 700, marginTop: 0 }}>Services offered:</h6>
           <ul className="pl-3" style={{ lineHeight: 1.75 }}>
             <li>Post construction cleaning</li>
             <li>Move-in / Move-out cleaning</li>
             <li>Daily / Weekly Janitorial Services</li>
           </ul>
         </div>
-
       </div>
     </section>
   );

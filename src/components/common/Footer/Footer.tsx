@@ -148,8 +148,88 @@ const Footer: React.FC = () => {
 
             {/* Col 2 */}
             <div className="col-md-6 col-lg-3 mb-4 mb-md-0 ftco-animate" data-animate-effect="fadeInUp">
-              <h2 className="footer-heading">{text[2]?.value ?? "Latest News"}</h2>
-              <div className="block-21 mb-4 d-flex ftco-animate">
+
+              <h2 className="footer-heading" style={{ color: "#fff", marginBottom: 12 }}>
+                {/*text[2]?.value ??*/ "Subscribe to our emails"}
+              </h2>
+              <p style={{ color: "rgba(255,255,255,.75)", marginBottom: 16 }}>
+                Be the first to know about new collections and exclusive offers.
+              </p>
+
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  // TODO: hook this to your newsletter service
+                }}
+                aria-label="Subscribe to our emails"
+              >
+                <div
+                  style={{
+                    position: "relative",
+                    maxWidth: 560,
+                    width: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <input
+                    type="email"
+                    required
+                    placeholder="Email"
+                    aria-label="Email address"
+                    style={{
+                      width: "100%",
+                      height: 56,
+                      padding: "0 56px 0 20px",
+                      borderRadius: 999,
+                      border: "2px solid rgba(255,255,255,.35)",
+                      background: "transparent",
+                      color: "#fff",
+                      outline: "none",
+                      fontSize: 16,
+                    }}
+                  />
+                  <button
+                    type="submit"
+                    title="Subscribe"
+                    style={{
+                      position: "absolute",
+                      right: 6,
+                      height: 44,
+                      width: 44,
+                      borderRadius: "50%",
+                      border: "2px solid rgba(255,255,255,.5)",
+                      background: "transparent",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {/* Arrow icon */}
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M5 12h12M13 6l6 6-6 6"
+                        stroke="#fff"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <span className="sr-only">Subscribe</span>
+                  </button>
+                </div>
+              </form>
+
+
+
+              {/*<div className="block-21 mb-4 d-flex ftco-animate">
                 <a
                   className="img mr-4 rounded"
                   style={{
@@ -205,7 +285,9 @@ const Footer: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
+
+
             </div>
 
             {/* Col 3 */}
