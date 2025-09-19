@@ -220,6 +220,10 @@ export const overlayMap = {
           {
             "value": "Contact",
             "tag": "a"
+          },
+           {
+            "value": "Login",
+            "tag": "a"
           }
         ],
         "links": [
@@ -257,7 +261,13 @@ export const overlayMap = {
             "tag": "a",
             "href": "/contact",
             "text": "Contact"
+          },
+          {
+            "tag": "a",
+            "href": "/auth",
+            "text": "Login"
           }
+
         ],
         "images": [],
         "variables": [],

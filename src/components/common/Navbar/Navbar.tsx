@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOverlay } from "@/store/hooks";
 import OverlayEditor from "@/components/dev/OverlayEditor";
+import { openBudoBoostAuth } from "@/utils/budoboostAuthBridge";
+
 
 const Navbar: React.FC = () => {
   // Overlay wiring (auto-injected)
@@ -130,10 +132,10 @@ const Navbar: React.FC = () => {
   ];*/
 
   const SERVICES = [
-  { icon: "🧹", label: "Janitorial Office Cleaning Service Quote", href: "/janitorial-office-cleaning-quote" },
-  { icon: "🚚", label: "Move-out/Move-in Cleaning Quote", href: "/move-out-move-in-cleaning-quote" },
-  { icon: "🏗️", label: "Post Construction Cleaning Quote", href: "/post-construction-cleaning-quote" },
-];
+    { icon: "🧹", label: "Janitorial Office Cleaning Service Quote", href: "/janitorial-office-cleaning-quote" },
+    { icon: "🚚", label: "Move-out/Move-in Cleaning Quote", href: "/move-out-move-in-cleaning-quote" },
+    { icon: "🏗️", label: "Post Construction Cleaning Quote", href: "/post-construction-cleaning-quote" },
+  ];
 
 
   const [servicesOpen, setServicesOpen] = useState(false);        // desktop dropdown
@@ -260,7 +262,7 @@ const Navbar: React.FC = () => {
                   </div>
                 </li>
 
-                 <li className={`nav-item ${isActive(H_CONTACT) ? "active" : ""}`}>
+                <li className={`nav-item ${isActive(H_CONTACT) ? "active" : ""}`}>
                   <a href={withBase(H_CONTACT)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_CONTACT)}>
                     {links[6]?.text ?? "Contact"}
                   </a>
@@ -272,7 +274,7 @@ const Navbar: React.FC = () => {
                   </a>
                 </li>
 
-                 <li className={`nav-item ${isActive(H_BLOG) ? "active" : ""}`}>
+                <li className={`nav-item ${isActive(H_BLOG) ? "active" : ""}`}>
                   <a href={withBase(H_BLOG)} className="nav-link" onClick={() => markActiveAndMaybeClose(H_BLOG)}>
                     {links[5]?.text ?? "Careers"}
                   </a>
@@ -283,7 +285,29 @@ const Navbar: React.FC = () => {
                     {links[4]?.text ?? "Gallery"}
                   </a>
                 </li>
-               
+
+                <li className={`nav-item ${isActive(H_GALLERY) ? "active" : ""}`}>
+                  <a
+                    href="/auth" className="nav-link"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      try {
+                        // redirects current tab to budoboost auth
+                        openBudoBoostAuth();
+                      } catch (err) {
+                        console.error("BudoBoost auth redirect failed", err);
+                        // hard fallback in case something throws synchronously
+                        const fallback =
+                          `https://budoboost.ai/authform?origin=${encodeURIComponent(window.location.origin)}&returnUrl=${encodeURIComponent(window.location.href)}`;
+                        window.location.href = fallback;
+                      }
+                    }}
+
+                  >
+                    {/*links[4]?.text ??*/ "Login"}
+                  </a>
+                </li>
+
 
               </ul>
             ) : (

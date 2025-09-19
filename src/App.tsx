@@ -16,6 +16,7 @@ import BlogSingle from "@/pages/blog-single";
 import Contact from "@/pages/contact";
 import Gallery from "@/pages/gallery";
 import Services from "@/pages/services";
+import AuthBridge from "@/pages/auth-bridge";
 import SiteWalkThroughPage from "./pages/site-walk-through";
 import CalculatorPage from "./pages/calculator";
 import GeneratorPage from "./pages/generator";
@@ -122,6 +123,7 @@ function MainRoutes() {
           <Route path="/photodocsandhistory" element={<PhotoDocAndHistoryPage />} />
           <Route path="/crm" element={<CRMPage />} />
           <Route path="/voiceandobservations" element={<VoiceAndObservationsPage />} />
+          <Route path="/auth-bridge" element={<AuthBridge />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </motion.main>
@@ -164,7 +166,7 @@ export default function App() {
   dumpOverlayMap();
 
   useSetBackgroundsGlobal();
-  
+
 
   const BASENAME = getBaseName();
 
