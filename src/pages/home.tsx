@@ -17,9 +17,9 @@ export default function HomePage() {
       <div><Sec1 /></div>
       {/*<div><Sec2 /></div>*/}
       <div><Sec3 /></div>
-      <div><Sec4 /></div>
-      <div><Sec5 /></div>
-      <div><Sec6 /></div>
+      {/*<div><Sec4 /></div>*/}
+      {/*<div><Sec5 /></div>*/}
+      {/*<div><Sec6 /></div>*/}
       <div><Sec7 /></div>
     </>
   );

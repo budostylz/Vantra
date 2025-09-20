@@ -55,10 +55,7 @@ export default function Sec0() {
         ref={sectionRef}
         className="hero-wrap hero-wrap-2"
         style={{
-          backgroundImage: `url(${
-            images[0]?.src ??
-            "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/bg_2.jpg"
-          })`,
+          backgroundImage: `url("https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/pexels-tatsuo-nakamura-2149208499-33945198.jpg")`,
         }}
         data-stellar-background-ratio="0.5"
       >

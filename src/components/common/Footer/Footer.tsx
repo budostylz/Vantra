@@ -349,13 +349,21 @@ const Footer: React.FC = () => {
                     </a>
                   </li>
                   <li>
-                    <a href={links[18]?.href ?? "#"}>
-                      <span className="icon">
-                        <PaperPlaneIcon />
-                      </span>
-                      <span className="text">{links[18]?.text ?? "info@yourdomain.com"}</span>
-                    </a>
+                    {(() => {
+                      const raw = (links[18]?.text || "info@yourdomain.com").trim();
+                      const email = raw.replace(/^mailto:/i, "");
+                      const href = `mailto:${email}`;
+                      return (
+                        <a href={href}>
+                          <span className="icon">
+                            <PaperPlaneIcon />
+                          </span>
+                          <span className="text">{email}</span>
+                        </a>
+                      );
+                    })()}
                   </li>
+
                 </ul>
               </div>
             </div>

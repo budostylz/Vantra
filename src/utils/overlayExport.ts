@@ -91,7 +91,7 @@ export async function exportOverlayJsonToStorage(options?: {
   if (!user) throw new Error("Not signed in. A user must be authenticated to export overlays.");
 
   // Hardcode for now per request
-  const templateId = options?.templateId ?? "vantra-123";
+  const templateId = options?.templateId ?? "vantra-qSKe8jlhMtNvudBqrdmcYljQMM42";
   const uid = user.uid;
 
   // Use a timestamped filename to avoid collisions, keep original hint in name

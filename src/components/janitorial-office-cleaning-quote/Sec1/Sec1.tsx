@@ -138,7 +138,7 @@ export default function Sec1() {
                       className="info-wrap w-100 p-5 img"
                       style={{
                         backgroundImage: `url(${images[0]?.src ??
-                          "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/about-1.jpg"
+                          "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/IMG_1152.jpeg"
                           })`,
                       }}
                     />
@@ -258,12 +258,12 @@ export default function Sec1() {
                 <h5 className="mb-3">Project Gallery</h5>
                 <EmblaCarousel
                   slides={
-                    (images?.length
+                    (!images?.length
                       ? images.map((i) => i?.src).filter(Boolean)
                       : [
-                        "https://images.unsplash.com/photo-1503387762-592deb58ef4e",
-                        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40",
-                        "https://images.unsplash.com/photo-1487014679447-9f8336841d58",
+                        "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/IMG_1152.jpeg",
+                        "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758327028787.jpeg",
+                        "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758326422970.jpeg",
                       ]) as string[]
                   }
                   options={{ loop: true, align: "center", containScroll: "trimSnaps" }}
