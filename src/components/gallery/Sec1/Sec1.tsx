@@ -342,7 +342,7 @@ export default function Sec1() {
           </div>
 
           {/* Pagination */}
-          <div className="row mt-5">
+          {/*<div className="row mt-5">
             <div className="col text-center">
               <div className="block-27">
                 <ul>
@@ -356,7 +356,7 @@ export default function Sec1() {
                 </ul>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 

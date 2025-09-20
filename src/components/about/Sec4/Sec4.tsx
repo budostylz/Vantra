@@ -31,7 +31,7 @@ export default function Sec4() {
               }}
             >
               <img
-                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=640&auto=format&fit=crop"
+                src="https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/Raven_CEO.png?q=80&w=640&auto=format&fit=crop"
                 alt="Founder portrait"
                 style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               />
