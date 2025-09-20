@@ -3,7 +3,7 @@
    Do not edit manually — commit overlayMap.ts instead. */
 export const overlayMap = {
   "id": "ssdfd122322",
- "global": {
+    "global": {
       "globalFtcoLoader1": {
         "id": "aa95f51993",
         "component": "GlobalFtcoLoader1",
@@ -102,27 +102,27 @@ export const overlayMap = {
             },
             {
               "tag": "p",
-              "value": "66 West Flagler St, Suite 900"
+              "value": "703 Thimble Shoals, Newport News, Va, 23606"
             },
             {
               "tag": "p",
-              "value": "Miami, Florida 33186"
+              "value": ""
             }
           ],
           "links": [
             {
               "tag": "iframe.src",
-              "href": "https://www.google.com/maps?q=66+West+Flagler+St,+Suite+900,+Miami,+Florida,+33186&output=embed",
+              "href": "https://www.google.com/maps?q=703+Thimble+Shoals,+Newport+News,+VA,+23606&output=embed",
               "text": "Embedded Map"
             },
             {
               "tag": "a",
-              "href": "https://www.google.com/maps/search/?api=1&query=66+West+Flagler+St,+Suite+900,+Miami,+Florida,+33186",
+              "href": "https://www.google.com/maps/search/?api=1&query=703+Thimble+Shoals,+Newport+News,+VA,+23606",
               "text": "Open in Google Maps"
             },
             {
               "tag": "a",
-              "href": "https://www.google.com/maps/dir/?api=1&destination=66+West+Flagler+St,+Suite+900,+Miami,+Florida,+33186",
+              "href": "https://www.google.com/maps/dir/?api=1&destination=703+Thimble+Shoals,+Newport+News,+VA,+23606",
               "text": "Get Directions"
             }
           ],
@@ -380,15 +380,15 @@ export const overlayMap = {
               "tag": "h2"
             },
             {
-              "value": "203 Fake St. Mountain View, San Francisco, California, USA",
+              "value": "703 Thimble Shoals, Newport News, Va, 23606",
               "tag": "span"
             },
             {
-              "value": "+2 392 3929 210",
+              "value": "+1 757 873 3366",
               "tag": "span"
             },
             {
-              "value": "info@yourdomain.com",
+              "value": "ravenb@vantraservices.com",
               "tag": "span"
             },
             {
@@ -497,12 +497,12 @@ export const overlayMap = {
             {
               "tag": "a",
               "href": "#",
-              "text": "+2 392 3929 210"
+              "text": "+1 757 873 3366"
             },
             {
               "tag": "a",
               "href": "#",
-              "text": "info@yourdomain.com"
+              "text": "ravenb@vantraservices.com"
             },
             {
               "tag": "a",
@@ -564,7 +564,12 @@ export const overlayMap = {
           "images": [
             {
               "tag": "style.backgroundImage",
-              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/bg_2.jpg"
+              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758334481913.jpeg",
+              "alt": "pexels-pixabay-327540.jpg",
+              "title": "pexels-pixabay-327540.jpg",
+              "width": 1920,
+              "height": 1271,
+              "format": "jpeg"
             }
           ],
           "variables": [],
@@ -1061,7 +1066,12 @@ export const overlayMap = {
           "images": [
             {
               "tag": "style.backgroundImage",
-              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/bg_2.jpg"
+              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332410926.jpeg",
+              "alt": "pexels-pixabay-161887.jpg",
+              "title": "pexels-pixabay-161887.jpg",
+              "width": 1920,
+              "height": 1271,
+              "format": "jpeg"
             }
           ],
           "variables": [],
@@ -1649,7 +1659,12 @@ export const overlayMap = {
           "images": [
             {
               "tag": "style.backgroundImage",
-              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/bg_2.jpg"
+              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758330945552.jpeg",
+              "alt": "pexels-pixabay-326576.jpg",
+              "title": "pexels-pixabay-326576.jpg",
+              "width": 1920,
+              "height": 1271,
+              "format": "jpeg"
             }
           ],
           "variables": [],
@@ -1672,27 +1687,27 @@ export const overlayMap = {
               "tag": "span"
             },
             {
-              "value": "198 West 21th Street, Suite 721 New York NY 10016",
+              "value": "703 Thimble Shoals, Newport News, Va, 23606",
               "tag": "p"
             },
             {
-              "value": "Phone:",
+              "value": "Phone: ",
               "tag": "span"
             },
             {
-              "value": "+ 1235 2355 98",
+              "value": "+1 757 873 3366",
               "tag": "a"
             },
             {
-              "value": "Email:",
+              "value": "Email: ",
               "tag": "span"
             },
             {
-              "value": "info@yoursite.com",
+              "value": "avenb@vantraservices.com",
               "tag": "a"
             },
             {
-              "value": "Website",
+              "value": "Website: ",
               "tag": "span"
             },
             {
@@ -1727,24 +1742,29 @@ export const overlayMap = {
           "links": [
             {
               "tag": "a",
-              "href": "tel://1234567920",
-              "text": "+ 1235 2355 98"
+              "href": "tel:+17578733366",
+              "text": "+1 757 873 3366"
             },
             {
               "tag": "a",
-              "href": "mailto:info@yoursite.com",
-              "text": "info@yoursite.com"
+              "href": "mailto:ravenb@vantraservices.com",
+              "text": "ravenb@vantraservices.com"
             },
             {
               "tag": "a",
               "href": "#",
-              "text": "yoursite.com"
+              "text": "vantra.com"
             }
           ],
           "images": [
             {
               "tag": "style.backgroundImage",
-              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/about-1.jpg"
+              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758327992192.jpeg",
+              "alt": "IMG_3587.jpg",
+              "title": "IMG_3587.jpg",
+              "width": 1000,
+              "height": 1494,
+              "format": "jpeg"
             }
           ],
           "variables": [],
@@ -1787,7 +1807,12 @@ export const overlayMap = {
           "images": [
             {
               "tag": "style.backgroundImage",
-              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/bg_2.jpg"
+              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332538735.jpeg",
+              "alt": "pexels-medhat-ayad-122846-383568.jpg",
+              "title": "pexels-medhat-ayad-122846-383568.jpg",
+              "width": 1920,
+              "height": 1271,
+              "format": "jpeg"
             }
           ],
           "variables": [],
@@ -1806,154 +1831,154 @@ export const overlayMap = {
         "props": {
           "text": [
             {
-              "value": "Roof cleaning",
+              "value": "",
               "tag": "span"
             },
             {
-              "value": "Roof Cleaning",
+              "value": "",
               "tag": "h2"
             },
             {
-              "value": "Driveway",
+              "value": "",
               "tag": "span"
             },
             {
-              "value": "Gaston Driveway",
+              "value": "",
               "tag": "h2"
             },
             {
-              "value": "Gutter Cleaning",
+              "value": "",
               "tag": "span"
             },
             {
-              "value": "Gutter",
+              "value": "",
               "tag": "h2"
             },
             {
-              "value": "Patio Cleaning",
+              "value": "",
               "tag": "span"
             },
             {
-              "value": "Patio Cleaning",
+              "value": "",
               "tag": "h2"
             },
             {
-              "value": "Building Cleaning",
+              "value": "",
               "tag": "span"
             },
             {
-              "value": "Building Cleaning",
+              "value": "",
               "tag": "h2"
             },
             {
-              "value": "Building Cleaning",
+              "value": "",
               "tag": "span"
             },
             {
-              "value": "Hall Way",
+              "value": "",
               "tag": "h2"
             },
             {
-              "value": "Patio Cleaning",
+              "value": "",
               "tag": "span"
             },
             {
-              "value": "Garden Cleaning",
+              "value": "",
               "tag": "h2"
             },
             {
-              "value": "Office",
+              "value": "",
               "tag": "span"
             },
             {
-              "value": "Office Cleaning",
+              "value": "",
               "tag": "h2"
             },
             {
-              "value": "1",
+              "value": "",
               "tag": "span"
             }
           ],
           "links": [
             {
               "tag": "a",
-              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-1.jpg",
+              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332595120.jpeg",
               "text": ""
             },
             {
               "tag": "a",
-              "href": "work-single.html",
-              "text": "Roof Cleaning"
+              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332595120.jpeg",
+              "text": "Cleaning high surfaces in a restaurant"
             },
             {
               "tag": "a",
-              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-2.jpg",
+              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332735820.jpeg",
               "text": ""
             },
             {
               "tag": "a",
-              "href": "work-single.html",
-              "text": "Gaston Driveway"
+              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332735820.jpeg",
+              "text": "Janitorial services in action"
             },
             {
               "tag": "a",
-              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-3.jpg",
+              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332719506.jpeg",
               "text": ""
             },
             {
               "tag": "a",
-              "href": "work-single.html",
-              "text": "Gutter"
+              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332719506.jpeg",
+              "text": "Commercial window cleaning"
             },
             {
               "tag": "a",
-              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-4.jpg",
+              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332760783.jpeg",
               "text": ""
             },
             {
               "tag": "a",
-              "href": "work-single.html",
-              "text": "Patio Cleaning"
+              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332760783.jpeg",
+              "text": "On-site supervision"
             },
             {
               "tag": "a",
-              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-5.jpg",
+              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332768837.jpeg",
               "text": ""
             },
             {
               "tag": "a",
-              "href": "work-single.html",
-              "text": "Building Cleaning"
+              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332768837.jpeg",
+              "text": "Company logo (black)"
             },
             {
               "tag": "a",
-              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-6.jpg",
+              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332787168.jpeg",
               "text": ""
             },
             {
               "tag": "a",
-              "href": "work-single.html",
-              "text": "Hall Way"
+              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332787168.jpeg",
+              "text": "Company branding on glass"
             },
             {
               "tag": "a",
-              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-7.jpg",
+              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332776009.jpeg",
               "text": ""
             },
             {
               "tag": "a",
-              "href": "work-single.html",
-              "text": "Garden Cleaning"
+              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332776009.jpeg",
+              "text": "Community project ribbon cutting"
             },
             {
               "tag": "a",
-              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-8.jpg",
+              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332857797.jpeg",
               "text": ""
             },
             {
               "tag": "a",
-              "href": "work-single.html",
-              "text": "Office Cleaning"
+              "href": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332857797.jpeg",
+              "text": "Modern architecture inspiration"
             },
             {
               "tag": "a",
@@ -1989,35 +2014,75 @@ export const overlayMap = {
           "images": [
             {
               "tag": "style.backgroundImage",
-              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-1.jpg"
+              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332595120.jpeg",
+              "alt": "Screenshot 2025-09-19 at 7.55.50 PM.png",
+              "title": "Screenshot 2025-09-19 at 7.55.50 PM.png",
+              "width": 1280,
+              "height": 848,
+              "format": "jpeg"
             },
             {
               "tag": "style.backgroundImage",
-              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-2.jpg"
+              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332735820.jpeg",
+              "alt": "IMG_3587.jpg",
+              "title": "IMG_3587.jpg",
+              "width": 1000,
+              "height": 667,
+              "format": "jpeg"
             },
             {
               "tag": "style.backgroundImage",
-              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-3.jpg"
+              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332719506.jpeg",
+              "alt": "IMG_2836.jpeg",
+              "title": "IMG_2836.jpeg",
+              "width": 1000,
+              "height": 668,
+              "format": "jpeg"
             },
             {
               "tag": "style.backgroundImage",
-              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-4.jpg"
+              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332760783.jpeg",
+              "alt": "IMG_4163_VSCO.JPG",
+              "title": "IMG_4163_VSCO.JPG",
+              "width": 1000,
+              "height": 656,
+              "format": "jpeg"
             },
             {
               "tag": "style.backgroundImage",
-              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-5.jpg"
+              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332768837.jpeg",
+              "alt": "IMG_0075.jpeg",
+              "title": "IMG_0075.jpeg",
+              "width": 1000,
+              "height": 750,
+              "format": "jpeg"
             },
             {
               "tag": "style.backgroundImage",
-              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-6.jpg"
+              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332787168.jpeg",
+              "alt": "IMG_2766.jpeg",
+              "title": "IMG_2766.jpeg",
+              "width": 1000,
+              "height": 667,
+              "format": "jpeg"
             },
             {
               "tag": "style.backgroundImage",
-              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-7.jpg"
+              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332776009.jpeg",
+              "alt": "IMG_0117.jpg",
+              "title": "IMG_0117.jpg",
+              "width": 1000,
+              "height": 665,
+              "format": "jpeg"
             },
             {
               "tag": "style.backgroundImage",
-              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-8.jpg"
+              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758332857797.jpeg",
+              "alt": "Raven_CEO.jpg",
+              "title": "Raven_CEO.jpg",
+              "width": 1000,
+              "height": 1414,
+              "format": "jpeg"
             }
           ],
           "variables": [],
@@ -2078,7 +2143,12 @@ export const overlayMap = {
           "images": [
             {
               "tag": "style.backgroundImage",
-              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/about-1.jpg"
+              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758326422970.jpeg",
+              "alt": "Screenshot 2025-09-19 at 7.55.50 PM.png",
+              "title": "Screenshot 2025-09-19 at 7.55.50 PM.png",
+              "width": 1000,
+              "height": 1494,
+              "format": "jpeg"
             }
           ],
           "variables": [],
@@ -2994,11 +3064,21 @@ export const overlayMap = {
           "images": [
             {
               "tag": "style.backgroundImage",
-              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-1.jpg"
+              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758326855258.jpeg",
+              "alt": "IMG_3587.jpg",
+              "title": "IMG_3587.jpg",
+              "width": 1280,
+              "height": 848,
+              "format": "jpeg"
             },
             {
               "tag": "style.backgroundImage",
-              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/gallery-2.jpg"
+              "src": "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/img-1758326868112.jpeg",
+              "alt": "IMG_1152.jpeg",
+              "title": "IMG_1152.jpeg",
+              "width": 1000,
+              "height": 667,
+              "format": "jpeg"
             },
             {
               "tag": "style.backgroundImage",

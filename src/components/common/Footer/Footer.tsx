@@ -27,6 +27,12 @@ const InstagramIcon = (p: React.SVGProps<SVGSVGElement>) => (
     <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2.2A2.8 2.8 0 1 0 12 16 2.8 2.8 0 0 0 12 9.2zm5.5-1.7a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z" />
   </svg>
 );
+/* Inline LinkedIn icon (inherits currentColor) */
+const LinkedInIcon = (p: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" {...p}>
+    <path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM9 9h3.8v1.9h.05c.53-1 1.82-2.05 3.75-2.05 4.01 0 4.75 2.64 4.75 6.08V21h-4v-5.33c0-1.27-.02-2.9-1.77-2.9-1.78 0-2.05 1.38-2.05 2.8V21H9z" />
+  </svg>
+);
 
 const MapPinIcon = (p: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" {...p}>
@@ -111,39 +117,34 @@ const Footer: React.FC = () => {
                 {text[1]?.value ??
                   "A small river named Duden flows by their place and supplies it with the necessary regelialia."}
               </p>
+
               <ul className="ftco-footer-social p-0">
                 <li className="ftco-animate">
                   <a
-                    href={links[0]?.href ?? "#"}
-                    title="X"
-                    aria-label="X"
-                    style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", lineHeight: 0 }}
-                  >
-                    <XIcon />
-                  </a>
-                </li>
-                <li className="ftco-animate">
-                  <a
-                    href={links[1]?.href ?? "#"}
-                    title="Facebook"
-                    aria-label="Facebook"
-                    style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", lineHeight: 0 }}
-                  >
-                    <FacebookIcon />
-                  </a>
-                </li>
-                <li className="ftco-animate">
-                  <a
-                    href={links[2]?.href ?? "#"}
+                    href={links[2]?.href ?? "https://www.instagram.com/"}
                     title="Instagram"
                     aria-label="Instagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", lineHeight: 0 }}
                   >
                     <InstagramIcon />
                   </a>
                 </li>
-              </ul>
+                <li className="ftco-animate">
+                  <a
+                    href={links[0]?.href ?? "https://www.linkedin.com/company/escape-chores-cleaning-services-llc/"}
+                    title="LinkedIn"
+                    aria-label="LinkedIn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", lineHeight: 0 }}
+                  >
+                    <LinkedInIcon />
+                  </a>
+                </li>
 
+              </ul>
             </div>
 
             {/* Col 2 */}
@@ -372,21 +373,15 @@ const Footer: React.FC = () => {
           {/* Copyright */}
           <div className="row mt-5">
             <div className="col-md-12 text-center ftco-animate" data-animate-effect="fadeInUp">
-              <p className="copyright">
-                {text[22]?.value ?? "© "} {currentYear} {text[23]?.value ?? " Crafted with passion "}
-                <FontAwesomeIcon
-                  icon={faRocket}
-                  style={{ fontSize: "1em", verticalAlign: "-0.12em", margin: "0 .25ch" }}
-                  aria-hidden="true"
-                />
-                {text[24]?.value ?? " on "}&nbsp;
-                <a href={links[19]?.href ?? "https://budoboost.ai"} target="_blank">
-                  {links[19]?.text ?? "BudoBoost.ai"}
-                </a>
-                &nbsp;{text[25]?.value ?? " — Empowering creators to launch beautiful sites in minutes."}
+              <p className="copyright mb-0">
+                © {currentYear}{" "}
+                {/*text[23]?.value ||*/ "Vantra Building Services"} —{" "}
+                {/*text[24]?.value ||*/ "The Gold Standard in Facility Care."}{" "}
+               
               </p>
             </div>
           </div>
+
 
         </div>
       </footer>

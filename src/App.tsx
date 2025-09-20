@@ -195,7 +195,7 @@ export default function App() {
           path="*"
           element={
             <>
-              <OverlayModeToggle />
+              {/*<OverlayModeToggle />*/}
               <GlobalWrap0 />
               <Navbar />
               <MainRoutes />

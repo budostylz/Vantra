@@ -68,222 +68,45 @@ export default function Sec1() {
   }, []);
   // ------------------------------------------------------------
 
-  // Consistent card + image sizing so the last one won't collapse
-  const cardStyle: React.CSSProperties = {
-    display: "flex",
-    flexDirection: "column",
-    width: "100%",
-  };
-  const imgStyle = (src?: string): React.CSSProperties => ({
-    display: "block",
-    width: "100%",
-    aspectRatio: "16 / 9", // consistent size across all cards
-    minHeight: 240,         // safety for older browsers
-    backgroundImage: `url(${src})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    overflow: "hidden",
-  });
+  // put this near the top of the file
+  const HIRING_FLYER =
+    encodeURI(
+      "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/Blue And Yellow Modern We Are Hiring Flyer.png"
+    );
+
+
 
   return (
     <>
-      <section ref={sectionRef} className="ftco-section bg-light">
-        <div className="container">
-          <div className="row justify-content-center pb-5 mb-3">
-            <div className="col-md-7 heading-section text-center ftco-animate">
-              <h2>{text[0]?.value ?? "Latest news from our blog"}</h2>
-            </div>
-          </div>
 
-          <div className="row d-flex">
-            {/* Card 1 */}
-            <div className="col-md-4 d-flex ftco-animate">
-              <div className="blog-entry align-self-stretch" style={cardStyle}>
-                <NavLink
-                  to={toBlogSingle(links[0]?.href)}
-                  className="block-20 rounded"
-                  style={imgStyle(
-                    images[0]?.src ??
-                      "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/image_1.jpg"
-                  )}
-                />
-                <div className="text p-4" style={{ flex: "1 1 auto" }}>
-                  <div className="meta mb-2">
-                    <div><a href={links[1]?.href ?? "#"}>{links[1]?.text ?? "June 14, 2020"}</a></div>
-                    <div><a href={links[2]?.href ?? "#"}>{links[2]?.text ?? "Admin"}</a></div>
-                    <div>
-                      <a href={links[3]?.href ?? "#"} className="meta-chat" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
-                        <ChatIcon style={{ color: "#2f89fc", width: 16, height: 16 }} />
-                        {links[3]?.text ?? "3"}
-                      </a>
-                    </div>
-                  </div>
-                  <h3 className="heading">
-                    <NavLink to={toBlogSingle(links[4]?.href)}>
-                      {links[4]?.text ?? "Even the all-powerful Pointing has no control about the blind texts"}
-                    </NavLink>
-                  </h3>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="col-md-4 d-flex ftco-animate">
-              <div className="blog-entry align-self-stretch" style={cardStyle}>
-                <NavLink
-                  to={toBlogSingle(links[5]?.href)}
-                  className="block-20 rounded"
-                  style={imgStyle(
-                    images[1]?.src ??
-                      "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/image_2.jpg"
-                  )}
-                />
-                <div className="text p-4" style={{ flex: "1 1 auto" }}>
-                  <div className="meta mb-2">
-                    <div><a href={links[6]?.href ?? "#"}>{links[6]?.text ?? "June 14, 2020"}</a></div>
-                    <div><a href={links[7]?.href ?? "#"}>{links[7]?.text ?? "Admin"}</a></div>
-                    <div>
-                      <a href={links[8]?.href ?? "#"} className="meta-chat" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
-                        <ChatIcon style={{ color: "#2f89fc", width: 16, height: 16 }} />
-                        {links[8]?.text ?? "3"}
-                      </a>
-                    </div>
-                  </div>
-                  <h3 className="heading">
-                    <NavLink to={toBlogSingle(links[9]?.href)}>
-                      {links[9]?.text ?? "Even the all-powerful Pointing has no control about the blind texts"}
-                    </NavLink>
-                  </h3>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="col-md-4 d-flex ftco-animate">
-              <div className="blog-entry align-self-stretch" style={cardStyle}>
-                <NavLink
-                  to={toBlogSingle(links[10]?.href)}
-                  className="block-20 rounded"
-                  style={imgStyle(
-                    images[2]?.src ??
-                      "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/image_3.jpg"
-                  )}
-                />
-                <div className="text p-4" style={{ flex: "1 1 auto" }}>
-                  <div className="meta mb-2">
-                    <div><a href={links[11]?.href ?? "#"}>{links[11]?.text ?? "June 14, 2020"}</a></div>
-                    <div><a href={links[12]?.href ?? "#"}>{links[12]?.text ?? "Admin"}</a></div>
-                    <div>
-                      <a href={links[13]?.href ?? "#"} className="meta-chat" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
-                        <ChatIcon style={{ color: "#2f89fc", width: 16, height: 16 }} />
-                        {links[13]?.text ?? "3"}
-                      </a>
-                    </div>
-                  </div>
-                  <h3 className="heading">
-                    <NavLink to={toBlogSingle(links[14]?.href)}>
-                      {links[14]?.text ?? "Even the all-powerful Pointing has no control about the blind texts"}
-                    </NavLink>
-                  </h3>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 4 */}
-            <div className="col-md-4 d-flex ftco-animate">
-              <div className="blog-entry align-self-stretch" style={cardStyle}>
-                <NavLink
-                  to={toBlogSingle(links[15]?.href)}
-                  className="block-20 rounded"
-                  style={imgStyle(
-                    images[3]?.src ??
-                      "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/image_4.jpg"
-                  )}
-                />
-                <div className="text p-4" style={{ flex: "1 1 auto" }}>
-                  <div className="meta mb-2">
-                    <div><a href={links[16]?.href ?? "#"}>{links[16]?.text ?? "June 14, 2020"}</a></div>
-                    <div><a href={links[17]?.href ?? "#"}>{links[17]?.text ?? "Admin"}</a></div>
-                    <div>
-                      <a href={links[18]?.href ?? "#"} className="meta-chat" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
-                        <ChatIcon style={{ color: "#2f89fc", width: 16, height: 16 }} />
-                        {links[18]?.text ?? "3"}
-                      </a>
-                    </div>
-                  </div>
-                  <h3 className="heading">
-                    <NavLink to={toBlogSingle(links[19]?.href)}>
-                      {links[19]?.text ?? "Even the all-powerful Pointing has no control about the blind texts"}
-                    </NavLink>
-                  </h3>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 5 */}
-            <div className="col-md-4 d-flex ftco-animate">
-              <div className="blog-entry align-self-stretch" style={cardStyle}>
-                <NavLink
-                  to={toBlogSingle(links[20]?.href)}
-                  className="block-20 rounded"
-                  style={imgStyle(
-                    images[4]?.src ??
-                      "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/image_5.jpg"
-                  )}
-                />
-                <div className="text p-4" style={{ flex: "1 1 auto" }}>
-                  <div className="meta mb-2">
-                    <div><a href={links[21]?.href ?? "#"}>{links[21]?.text ?? "June 14, 2020"}</a></div>
-                    <div><a href={links[22]?.href ?? "#"}>{links[22]?.text ?? "Admin"}</a></div>
-                    <div>
-                      <a href={links[23]?.href ?? "#"} className="meta-chat" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
-                        <ChatIcon style={{ color: "#2f89fc", width: 16, height: 16 }} />
-                        {links[23]?.text ?? "3"}
-                      </a>
-                    </div>
-                  </div>
-                  <h3 className="heading">
-                    <NavLink to={toBlogSingle(links[24]?.href)}>
-                      {links[24]?.text ?? "Even the all-powerful Pointing has no control about the blind texts"}
-                    </NavLink>
-                  </h3>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 6 */}
-            <div className="col-md-4 d-flex ftco-animate">
-              <div className="blog-entry align-self-stretch" style={cardStyle}>
-                <NavLink
-                  to={toBlogSingle(links[25]?.href)}
-                  className="block-20 rounded"
-                  style={imgStyle(
-                    images[5]?.src ??
-                      "https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/templates/pressurewashing-3365cccdb5/images/image_6.jpg"
-                  )}
-                />
-                <div className="text p-4" style={{ flex: "1 1 auto" }}>
-                  <div className="meta mb-2">
-                    <div><a href={links[26]?.href ?? "#"}>{links[26]?.text ?? "June 14, 2020"}</a></div>
-                    <div><a href={links[27]?.href ?? "#"}>{links[27]?.text ?? "Admin"}</a></div>
-                    <div>
-                      <a href={links[28]?.href ?? "#"} className="meta-chat" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
-                        <ChatIcon style={{ color: "#2f89fc", width: 16, height: 16 }} />
-                        {links[28]?.text ?? "3"}
-                      </a>
-                    </div>
-                  </div>
-                  <h3 className="heading">
-                    <NavLink to={toBlogSingle(links[29]?.href)}>
-                      {links[29]?.text ?? "Even the all-powerful Pointing has no control about the blind texts"}
-                    </NavLink>
-                  </h3>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* Centered flyer */}
+      <section className="ftco-section bg-light" ref={sectionRef}>
+        <div
+          className="container"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <img
+            src={HIRING_FLYER}
+            alt="We Are Hiring — Vantra Building Services"
+            style={{
+              display: "block",
+              width: "100%",
+              maxWidth: 860,          // tweak as needed
+              height: "auto",
+              borderRadius: 12,
+              boxShadow: "0 10px 30px rgba(15,24,65,.12)",
+            }}
+            className="ftco-animate"
+            data-animate-effect="fadeInUp"
+          />
         </div>
       </section>
+
+
 
       {/* Editor panel */}
       <div className="container mt-6">

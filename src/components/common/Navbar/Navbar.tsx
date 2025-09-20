@@ -159,9 +159,31 @@ const Navbar: React.FC = () => {
             className="navbar-brand"
             href={withBase(links[0]?.href ?? "/")}
             onClick={() => markActiveAndMaybeClose(links[0]?.href ?? "/")}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              height: 68,            // ↑ was 50
+              marginRight: 12,
+            }}
           >
-            {links[0]?.text ?? "Pressure"} <span>{text[1]?.value ?? "Washing"}</span>
+            <img
+              src="https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/logo.png"
+              alt="Vantra Logo"
+              style={{
+                height: "180%",      // fill the brand area height
+                width: "auto",       // keep aspect ratio
+                objectFit: "contain",
+                display: "block",
+              }}
+              // optional: keep it sharp on retina
+              srcSet="
+      https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/logo.png 1x,
+      https://storage.googleapis.com/budoapps-5aacf.firebasestorage.app/users/GLelFyrkvyMnLPTfOFY2xS6QT3t2/vantra-qSKe8jlhMtNvudBqrdmcYljQMM42/img/logo.png 2x
+    "
+            />
           </a>
+
+
 
           <button
             className={`navbar-toggler ${open ? "" : "collapsed"}`}
@@ -286,7 +308,7 @@ const Navbar: React.FC = () => {
                   </a>
                 </li>
 
-                <li className={`nav-item ${isActive(H_GALLERY) ? "active" : ""}`}>
+                {/*<li className={`nav-item ${isActive(H_GALLERY) ? "active" : ""}`}>
                   <a
                     href="/auth" className="nav-link"
                     onClick={(e) => {
@@ -304,9 +326,9 @@ const Navbar: React.FC = () => {
                     }}
 
                   >
-                    {/*links[4]?.text ??*/ "Login"}
+                    {"Login"}
                   </a>
-                </li>
+                </li> */}
 
 
               </ul>
